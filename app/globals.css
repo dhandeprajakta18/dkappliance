@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* ========================================
+   BRAND COLORS
+======================================== */
+
+:root {
+  --primary: #0b223d;
+  --secondary: #0866e8;
+  --accent: #38bdf8;
+
+  --background: #fafbfc;
+  --surface: #ffffff;
+
+  --text-primary: #14263d;
+  --text-secondary: #64748b;
+
+  --border: #e2e8f0;
+
+  /* Typography */
+  --font-heading: var(--font-manrope);
+  --font-body: var(--font-inter);
+  --font-script: var(--font-cursive);
+}
+
+/* ========================================
+   TAILWIND THEME
+======================================== */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--text-primary);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-inter);
+}
+
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: var(--background);
+  color: var(--text-primary);
+
+  font-family: var(--font-body), Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), Arial, sans-serif;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* Optional cursive utility */
+
+.font-cursive {
+  font-family: var(--font-script), cursive;
+  font-weight: 400;
+}
+
+/* ========================================
+   BUTTONS & INPUTS
+======================================== */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ========================================
+   LINKS
+======================================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========================================
+   IMAGES
+======================================== */
+
+img {
+  max-width: 100%;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #dbeafe;
+  color: #0b223d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,840 @@
+/* ========================================
+   SERVICES SECTION
+======================================== */
+
+.services {
+  position: relative;
+  width: 100%;
+  padding: 110px 5% 115px;
+  background: #f8fafc;
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   SECTION HEADER
+======================================== */
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 60px;
+  margin-bottom: 55px;
+}
+
+.headingContent {
+  flex: 1;
+  min-width: 0;
+}
+
+/* SECTION LABEL */
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+  margin-bottom: 23px;
+
+  color: #0866e8;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.sectionLabel::before {
+  content: "";
+
+  width: 28px;
+  height: 2px;
+
+  background: #0866e8;
+}
+
+/* MAIN HEADING */
+
+.sectionTitle {
+  margin: 0;
+
+  color: #0b223d;
+
+  font-family: var(--font-manrope), sans-serif;
+
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+
+  line-height: 1.18;
+  letter-spacing: -2.2px;
+}
+
+/* CURSIVE HEADING */
+
+.cursiveTitle {
+  display: inline-block;
+
+  padding-right: 10px;
+
+  color: #0866e8;
+
+  font-family: var(--font-cursive), cursive;
+
+  font-size: 1.28em;
+  font-weight: 400;
+
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+/* RIGHT DESCRIPTION */
+
+.headingRight {
+  width: 100%;
+  max-width: 360px;
+
+  padding-bottom: 8px;
+}
+
+.headingRight p {
+  margin: 0 0 25px;
+
+  color: #718096;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+/* VIEW ALL LINK */
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 13px;
+
+  color: #0866e8;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: gap 0.3s ease;
+}
+
+.viewAll:hover {
+  gap: 18px;
+}
+
+.viewAllIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+}
+
+/* ========================================
+   SERVICES GRID
+======================================== */
+
+.servicesGrid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    3,
+    minmax(0, 1fr)
+  );
+
+  gap: 25px;
+
+  align-items: stretch;
+}
+
+/* ========================================
+   SERVICE CARD
+======================================== */
+
+.serviceCard {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-6px);
+
+  border-color: #d5e4f5;
+
+  box-shadow:
+    0 18px 45px rgba(11, 34, 61, 0.08);
+}
+
+/* ========================================
+   CARD IMAGE
+======================================== */
+
+.imageWrapper {
+  position: relative;
+
+  width: 100%;
+  height: 245px;
+
+  overflow: hidden;
+
+  background: #edf2f7;
+}
+
+.serviceImage {
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.05);
+}
+
+/* IMAGE NUMBER */
+
+.cardNumber {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 39px;
+  height: 39px;
+
+  background: #ffffff;
+
+  border-radius: 8px;
+
+  color: #0b223d;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 27px 26px 24px;
+}
+
+/* CARD HEADING */
+
+.cardHeading {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 17px;
+}
+
+/* SMALL SERVICE ICON */
+
+.serviceIcon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #edf5ff;
+
+  color: #0866e8;
+
+  border-radius: 10px;
+
+  font-size: 18px;
+}
+
+/* SERVICE TITLE */
+
+.cardHeading h3 {
+  margin: 0;
+
+  color: #0b223d;
+
+  font-family: var(--font-manrope), sans-serif;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+}
+
+/* SERVICE DESCRIPTION */
+
+.cardDescription {
+  margin: 0 0 27px;
+
+  color: #758397;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.85;
+}
+
+/* ========================================
+   CARD BOOKING LINK
+======================================== */
+
+.cardLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: auto;
+  padding-top: 19px;
+
+  border-top: 1px solid #edf0f4;
+
+  color: #0b223d;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.cardLink:hover {
+  color: #0866e8;
+}
+
+/* ARROW */
+
+.cardArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 31px;
+  height: 31px;
+
+  flex-shrink: 0;
+
+  background: #edf5ff;
+
+  color: #0866e8;
+
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.cardLink:hover .cardArrow {
+  background: #0866e8;
+  color: #ffffff;
+
+  transform: translateX(3px);
+}
+
+/* ========================================
+   BOTTOM CTA BANNER
+======================================== */
+
+.bottomBanner {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-top: 65px;
+  padding: 42px 48px;
+
+  overflow: hidden;
+
+  background: #0b223d;
+
+  border-radius: 16px;
+}
+
+/* SUBTLE DECORATIVE CIRCLE */
+
+.bottomBanner::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -100px;
+  top: -150px;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.08
+  );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* LEFT SIDE */
+
+.bannerLeft {
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+
+  min-width: 0;
+}
+
+/* BANNER ICON */
+
+.bannerIcon {
+  width: 65px;
+  height: 65px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.12
+  );
+
+  border-radius: 14px;
+
+  color: #ffffff;
+
+  font-size: 24px;
+}
+
+/* BANNER CONTENT */
+
+.bannerContent {
+  min-width: 0;
+}
+
+.bannerLabel {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #9ac4ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+/* BANNER TITLE */
+
+.bannerContent h3 {
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+  font-family: var(--font-manrope), sans-serif;
+
+  font-size: clamp(24px, 2.3vw, 31px);
+  font-weight: 800;
+
+  line-height: 1.3;
+  letter-spacing: -1px;
+}
+
+.bannerContent h3 span {
+  color: #9ac4ff;
+
+  font-family: var(--font-cursive), cursive;
+
+  font-size: 1.3em;
+  font-weight: 400;
+
+  letter-spacing: 0;
+}
+
+/* BANNER DESCRIPTION */
+
+.bannerContent p {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: #b9c8d9;
+
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* ========================================
+   BANNER BUTTON
+======================================== */
+
+.bannerButton {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  flex-shrink: 0;
+
+  padding: 17px 25px;
+
+  background: #ffffff;
+
+  color: #0b223d;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.bannerButton:hover {
+  background: #0866e8;
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   LARGE TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+  .services {
+    padding: 90px 5%;
+  }
+
+  .sectionHeader {
+    gap: 35px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
+
+  .imageWrapper {
+    height: 265px;
+  }
+
+  .bottomBanner {
+    padding: 35px;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 850px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 22px;
+
+    margin-bottom: 40px;
+  }
+
+  .headingRight {
+    max-width: 600px;
+  }
+
+  .headingRight p {
+    margin-bottom: 18px;
+  }
+
+  .bottomBanner {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 28px;
+  }
+
+  .bannerButton {
+    align-self: flex-start;
+  }
+}
+
+/* ========================================
+   SMALL TABLET
+======================================== */
+
+@media (max-width: 700px) {
+  .servicesGrid {
+    gap: 18px;
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+
+  .cardContent {
+    padding: 23px 20px;
+  }
+
+  .cardHeading {
+    align-items: flex-start;
+  }
+
+  .cardHeading h3 {
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+  .services {
+    padding: 75px 20px 85px;
+  }
+
+  /* HEADER */
+
+  .sectionHeader {
+    gap: 20px;
+    margin-bottom: 35px;
+  }
+
+  .sectionLabel {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(32px, 8vw, 40px);
+
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+  }
+
+  .cursiveTitle {
+    font-size: 1.22em;
+  }
+
+  .headingRight {
+    max-width: 100%;
+  }
+
+  .headingRight p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  /* GRID */
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* IMAGE */
+
+  .imageWrapper {
+    height: 245px;
+  }
+
+  /* CARD */
+
+  .cardContent {
+    padding: 25px 23px 23px;
+  }
+
+  .cardHeading {
+    align-items: center;
+    gap: 13px;
+  }
+
+  .cardHeading h3 {
+    font-size: 18px;
+  }
+
+  .cardDescription {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  /* BOTTOM BANNER */
+
+  .bottomBanner {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 25px;
+
+    margin-top: 45px;
+    padding: 30px 25px;
+
+    border-radius: 14px;
+  }
+
+  .bannerLeft {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .bannerIcon {
+    width: 55px;
+    height: 55px;
+
+    font-size: 21px;
+  }
+
+  .bannerContent h3 {
+    font-size: 26px;
+  }
+
+  .bannerContent p {
+    font-size: 12px;
+  }
+
+  .bannerButton {
+    width: 100%;
+    align-self: stretch;
+
+    padding: 16px 20px;
+  }
+}
+
+/* ========================================
+   EXTRA SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .services {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 31px;
+  }
+
+  .imageWrapper {
+    height: 215px;
+  }
+
+  .cardContent {
+    padding: 22px 19px;
+  }
+
+  .cardHeading h3 {
+    font-size: 16px;
+  }
+
+  .bottomBanner {
+    padding: 26px 20px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+.viewAll:focus-visible,
+.cardLink:focus-visible,
+.bannerButton:focus-visible {
+  outline: 2px solid #0866e8;
+  outline-offset: 4px;
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard,
+  .serviceImage,
+  .cardArrow,
+  .cardLink,
+  .bannerButton,
+  .viewAll {
+    transition: none;
+  }
+}

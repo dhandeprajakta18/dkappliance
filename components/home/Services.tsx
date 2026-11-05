@@ -142,9 +142,9 @@ export default function Services() {
                     className={styles.serviceImage}
                   />
 
-                  {/* <span className={styles.cardNumber}>
+                  <span className={styles.cardNumber}>
                     {service.number}
-                  </span> */}
+                  </span>
 
                 </div>
 

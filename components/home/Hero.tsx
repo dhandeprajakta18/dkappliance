@@ -12,7 +12,6 @@ import {
   FaTv,
   FaFireBurner,
   FaDroplet,
-  FaCircleCheck,
   FaScrewdriverWrench,
   FaCalendarCheck,
   FaHouse,
@@ -155,12 +154,21 @@ export default function Hero() {
                 src="/images/technician1.png"
                 alt="Appliance repair technician providing professional service"
                 fill
-                priority
-                sizes="(max-width: 900px) 100vw, 45vw"
+                preload
+                sizes="(max-width: 1024px) 100vw, 45vw"
                 className={styles.heroImage}
               />
 
               <div className={styles.imageOverlay} />
+
+              {/* <div
+                className={styles.heroServicePanel}
+                aria-hidden="true"
+              >
+                <span>Choose a service</span>
+                <span>Book a repair</span>
+                <span>Doorstep service</span>
+              </div> */}
 
               <div className={styles.imageBottomText}>
                 {/* <span>DK APPLIANCE CARE</span> */}
@@ -249,12 +257,6 @@ export default function Hero() {
                     isSelected ? styles.selected : ""
                   }`}
                 >
-                  {isSelected && (
-                    <FaCircleCheck
-                      className={styles.selectedCheck}
-                    />
-                  )}
-
                   <span className={styles.applianceIcon}>
                     <Icon />
                   </span>
@@ -274,6 +276,19 @@ export default function Hero() {
           {/* SELECTOR FOOTER */}
 
           <div className={styles.selectorFooter}>
+            <p
+              className={`${styles.selectionFeedback} ${
+                selectedService
+                  ? styles.selectionFeedbackActive
+                  : ""
+              }`}
+              aria-live="polite"
+            >
+              {selectedService
+                ? `${selectedService} selected`
+                : "Choose an appliance to continue"}
+            </p>
+
             <Link
               href={bookingUrl}
               className={styles.continueButton}

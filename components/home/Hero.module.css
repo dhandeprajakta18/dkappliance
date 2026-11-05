@@ -1,65 +1,66 @@
-/* ======================================
-   HERO
-====================================== */
-
 .hero {
   position: relative;
+  isolation: isolate;
   width: 100%;
   overflow: hidden;
-  background: #faf9f6;
-  padding: 85px 5% 105px;
+  padding: clamp(76px, 7vw, 118px) 5% clamp(88px, 8vw, 132px);
+  background: linear-gradient(118deg, #ffffff 0%, #f9fbfe 54%, #eaf3fc 54%, #f5f9fd 100%);
+}
+
+.hero::before,
+.hero::after {
+  position: absolute;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.hero::before {
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, #38bdf8 0%, #0866e8 38%, transparent 78%);
+}
+
+.hero::after {
+  top: 0;
+  right: clamp(26px, 6vw, 104px);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(8, 102, 232, 0.18) 19%, rgba(8, 102, 232, 0.04) 76%, transparent 100%);
 }
 
 .heroContainer {
   position: relative;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-
+  z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1.04fr) minmax(420px, 0.96fr);
   align-items: center;
-  gap: clamp(45px, 6vw, 100px);
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  gap: clamp(52px, 7vw, 116px);
 }
-
-/* ======================================
-   LEFT CONTENT
-====================================== */
 
 .heroContent {
   position: relative;
   z-index: 2;
   min-width: 0;
-}
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-
-  margin-bottom: 30px;
-
-  color: #0866e8;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
-}
-
-.eyebrowLine {
-  width: 32px;
-  height: 2px;
-  background: #0866e8;
+  max-width: 650px;
+  animation: heroContentIn 0.72s cubic-bezier(0.2, 0.75, 0.25, 1) backwards;
 }
 
 .heroTitle {
-  margin: 0 0 30px;
-
-  font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(44px, 4.7vw, 73px);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -3.5px;
+  max-width: 650px;
+  margin: 0 0 28px;
   color: #0b223d;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.068em;
+  text-wrap: balance;
 }
 
 .titleAccent {
@@ -68,36 +69,29 @@
 
 .cursiveText {
   display: inline-block;
-
-  font-family: var(--font-cursive), cursive;
-  font-size: 1.45em;
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: 0;
+  padding: 0 0.12em 0.04em 0;
   color: #0866e8;
-
-  padding-right: 12px;
+  font-family: var(--font-cursive), cursive;
+  font-size: 1.38em;
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: 0;
 }
 
 .heroDescription {
   max-width: 530px;
-  margin: 0 0 35px;
-
-  color: #68788a;
+  margin: 0 0 34px;
+  color: #61748a;
   font-family: var(--font-inter), sans-serif;
   font-size: 15px;
-  line-height: 1.95;
+  line-height: 1.9;
 }
-
-/* ======================================
-   BUTTONS
-====================================== */
 
 .heroButtons {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 14px;
+  align-items: center;
+  gap: 12px;
 }
 
 .primaryButton,
@@ -105,463 +99,666 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-
-  min-height: 53px;
-  padding: 15px 24px;
-
-  border-radius: 8px;
-
+  gap: 14px;
+  min-height: 56px;
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
   font-family: var(--font-inter), sans-serif;
   font-size: 13px;
-  font-weight: 600;
-
+  font-weight: 700;
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease,
+    border-color 0.28s ease,
+    color 0.28s ease;
 }
 
 .primaryButton {
-  background: #0866e8;
   color: #ffffff;
-  box-shadow: 0 10px 25px rgba(8, 102, 232, 0.14);
-}
-
-.primaryButton:hover {
-  background: #0755c4;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #1177f4 0%, #0866e8 52%, #0758ca 100%);
+  box-shadow:
+    0 16px 28px rgba(8, 102, 232, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .secondaryButton {
-  background: transparent;
-  color: #0b223d;
-  border: 1px solid #d6dfe9;
+  color: #193650;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(157, 180, 204, 0.5);
+  box-shadow: 0 10px 20px rgba(28, 66, 103, 0.035);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-3px);
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #2386ff 0%, #0866e8 52%, #064fb7 100%);
+  box-shadow:
+    0 20px 34px rgba(8, 102, 232, 0.29),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
 .secondaryButton:hover {
-  background: #ffffff;
-  border-color: #0866e8;
   color: #0866e8;
+  background: #ffffff;
+  border-color: rgba(8, 102, 232, 0.42);
+  box-shadow: 0 15px 28px rgba(28, 66, 103, 0.09);
 }
 
 .primaryButton svg,
 .secondaryButton svg {
-  font-size: 13px;
+  font-size: 12px;
+  transition: transform 0.28s ease;
 }
 
-/* ======================================
-   HERO FEATURES
-====================================== */
+.primaryButton:hover svg,
+.secondaryButton:hover svg {
+  transform: translateX(3px);
+}
 
 .heroFeatures {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 18px;
-
+  width: fit-content;
+  max-width: 100%;
   margin-top: 42px;
-  padding-top: 25px;
-
-  border-top: 1px solid #e4e8ec;
+  padding: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(171, 193, 216, 0.48);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 16px 36px rgba(22, 62, 100, 0.055);
+  backdrop-filter: blur(12px);
 }
 
 .feature {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
-  gap: 9px;
-
-  color: #536579;
+  gap: 10px;
+  min-height: 42px;
+  padding: 7px 15px;
+  color: #435d77;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 0.28s ease, transform 0.28s ease;
 }
 
 .featureIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  border-radius: 9px;
   color: #0866e8;
-  font-size: 15px;
+  background: #e5f0ff;
+  font-size: 13px;
+  transition: transform 0.28s ease, color 0.28s ease, background 0.28s ease;
+}
+
+.feature:hover {
+  color: #0b223d;
+  transform: translateY(-2px);
+}
+
+.feature:hover .featureIcon {
+  color: #ffffff;
+  background: #0866e8;
+  transform: translateY(-2px);
 }
 
 .featureDivider {
   width: 1px;
-  height: 17px;
-  background: #d8e0e8;
+  height: 26px;
+  flex: 0 0 1px;
+  background: #dce6f0;
 }
-
-/* ======================================
-   RIGHT IMAGE
-====================================== */
 
 .heroVisual {
   position: relative;
-  min-width: 0;
-  min-height: 620px;
-
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  min-width: 0;
+  min-height: 640px;
+  padding: 34px 0 0;
+}
+
+.heroVisual::before,
+.heroVisual::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.heroVisual::before {
+  top: 12px;
+  right: -16px;
+  width: min(93%, 510px);
+  height: calc(100% - 66px);
+  border: 1px solid rgba(8, 102, 232, 0.31);
+  border-radius: 0;
+  transform: translate(0, 0);
+}
+
+.heroVisual::after {
+  bottom: 28px;
+  left: -16px;
+  width: 142px;
+  height: 5px;
+  background: linear-gradient(90deg, #38bdf8, #0866e8 72%, transparent 72%);
 }
 
 .imageFrame {
   position: relative;
-  width: 100%;
-  height: 610px;
+  z-index: 1;
+  width: min(100%, 530px);
+  height: clamp(540px, 43vw, 640px);
+  margin-left: auto;
   overflow: hidden;
+  border: 9px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  background: #dceaf6;
+  box-shadow:
+    0 35px 74px rgba(11, 34, 61, 0.2),
+    0 7px 20px rgba(8, 102, 232, 0.1);
+  animation: mediaReveal 0.85s cubic-bezier(0.2, 0.75, 0.25, 1) 0.13s backwards;
+}
 
-  background: #e6edf4;
-  border-radius: 260px 260px 12px 12px;
-
-  box-shadow: 0 25px 65px rgba(11, 34, 61, 0.1);
+.imageFrame::before {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 4px;
+  background: linear-gradient(90deg, #38bdf8, #0866e8);
+  content: "";
+  transform-origin: left;
+  animation: lineReveal 0.65s ease-out 0.64s backwards;
 }
 
 .heroImage {
   object-fit: cover;
-  object-position: center;
-  transition: transform 0.7s ease;
+  object-position: center 39%;
+  transition: transform 0.8s cubic-bezier(0.2, 0.65, 0.2, 1);
 }
 
 .imageFrame:hover .heroImage {
-  transform: scale(1.04);
+  transform: scale(1.045);
 }
 
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 55%,
-    rgba(7, 25, 46, 0.65) 100%
-  );
+  z-index: 1;
   pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(5, 34, 69, 0.04) 30%, rgba(5, 25, 51, 0.78) 100%),
+    linear-gradient(90deg, rgba(8, 102, 232, 0.18), transparent 48%);
+  transition: background 0.55s ease;
+}
+
+.imageFrame:hover .imageOverlay {
+  background:
+    linear-gradient(180deg, rgba(5, 34, 69, 0.02) 25%, rgba(5, 25, 51, 0.86) 100%),
+    linear-gradient(90deg, rgba(8, 102, 232, 0.28), transparent 58%);
+}
+
+.heroServicePanel {
+  position: absolute;
+  z-index: 2;
+  top: 28px;
+  left: 28px;
+  display: grid;
+  width: min(226px, calc(100% - 56px));
+  overflow: hidden;
+  border: 1px solid rgba(206, 230, 255, 0.36);
+  border-left: 3px solid #38bdf8;
+  border-radius: 12px;
+  background: rgba(7, 30, 57, 0.78);
+  box-shadow: 0 15px 30px rgba(0, 17, 37, 0.22);
+  backdrop-filter: blur(12px);
+  counter-reset: service-flow;
+  transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease;
+}
+
+.heroServicePanel span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 39px;
+  padding: 9px 13px;
+  border-bottom: 1px solid rgba(214, 234, 255, 0.12);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  counter-increment: service-flow;
+  animation: panelRowIn 0.5s cubic-bezier(0.2, 0.75, 0.25, 1) backwards;
+}
+
+.heroServicePanel span::before {
+  min-width: 17px;
+  color: #8fd2ff;
+  font-size: 9px;
+  font-weight: 800;
+  content: "0" counter(service-flow);
+}
+
+.heroServicePanel span:last-child {
+  border-bottom: 0;
+}
+
+.heroServicePanel span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.heroServicePanel span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.imageFrame:hover .heroServicePanel {
+  border-left-color: #ffffff;
+  background: rgba(5, 28, 56, 0.9);
+  transform: translateY(-3px);
 }
 
 .imageBottomText {
   position: absolute;
   z-index: 2;
-  bottom: 32px;
-  left: 35px;
-  right: 35px;
+  right: 36px;
+  bottom: 36px;
+  left: 36px;
   color: #ffffff;
+  transition: transform 0.45s ease;
 }
 
-.imageBottomText > span {
+.imageBottomText::before {
   display: block;
-  margin-bottom: 10px;
+  width: 42px;
+  height: 3px;
+  margin-bottom: 13px;
+  background: linear-gradient(90deg, #38bdf8, #ffffff);
+  content: "";
+}
 
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
+.imageFrame:hover .imageBottomText {
+  transform: translateY(-5px);
 }
 
 .imageBottomText p {
+  max-width: 250px;
   margin: 0;
   font-family: var(--font-manrope), sans-serif;
-  font-size: 23px;
+  font-size: clamp(20px, 1.8vw, 25px);
   font-weight: 700;
-  line-height: 1.4;
-}
-
-/* ======================================
-   FLOATING CARD
-====================================== */
-
-.floatingCard {
-  position: absolute;
-  z-index: 3;
-  left: -45px;
-  bottom: 105px;
-
-  display: flex;
-  align-items: center;
-  gap: 13px;
-
-  padding: 16px 19px;
-
-  background: #ffffff;
-  border: 1px solid #edf0f4;
-  border-radius: 12px;
-
-  box-shadow: 0 15px 40px rgba(11, 34, 61, 0.11);
-}
-
-.floatingIcon {
-  width: 43px;
-  height: 43px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-
-  background: #eaf2ff;
-  color: #0866e8;
-  border-radius: 10px;
-  font-size: 19px;
-}
-
-.floatingCard strong {
-  display: block;
-  margin-bottom: 5px;
-  color: #0b223d;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.floatingCard span {
-  color: #8997a7;
-  font-size: 10px;
-}
-
-.floatingCheck {
-  margin-left: 8px;
-  color: #0866e8;
-  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
 }
 
 .verticalLabel {
   position: absolute;
-  right: -43px;
+  z-index: 2;
   top: 50%;
-
-  transform: translateY(-50%) rotate(90deg);
-
-  color: #8ea2b8;
+  right: -52px;
+  color: #58718b;
   font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-weight: 800;
+  letter-spacing: 0.34em;
   white-space: nowrap;
+  transform: translateY(-50%) rotate(90deg);
 }
 
-/* ======================================
-   SERVICE SELECTOR
-====================================== */
-
 .serviceSelector {
-  padding: 95px 5% 105px;
+  position: relative;
+  padding: 0 5% clamp(92px, 9vw, 128px);
   background: #ffffff;
   scroll-margin-top: 100px;
 }
 
 .selectorContainer {
+  position: relative;
+  top: -1px;
   max-width: 1380px;
   margin: 0 auto;
+  padding: clamp(46px, 5vw, 68px);
+  overflow: hidden;
+  border: 1px solid #dce8f4;
+  border-radius: 16px;
+  background: linear-gradient(118deg, #f7fbff 0%, #ffffff 54%, #f1f7fe 100%);
+  box-shadow: 0 22px 60px rgba(19, 58, 96, 0.08);
+  animation: selectorEnter 0.72s cubic-bezier(0.2, 0.75, 0.25, 1) backwards;
+}
+
+.selectorContainer::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(30%, 330px);
+  height: 5px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.7), #0866e8);
+  content: "";
+  pointer-events: none;
 }
 
 .selectorHeader {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: 35px;
-
-  margin-bottom: 38px;
-}
-
-.sectionEyebrow {
-  color: #0866e8;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
+  gap: 40px;
+  margin-bottom: 42px;
 }
 
 .selectorTitleGroup h2 {
-  margin: 15px 0 0;
-
+  max-width: 650px;
+  margin: 0;
   color: #0b223d;
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(32px, 3.5vw, 48px);
+  font-size: clamp(35px, 3.6vw, 52px);
   font-weight: 800;
-  line-height: 1.3;
-  letter-spacing: -2px;
+  line-height: 1.16;
+  letter-spacing: -0.058em;
+  text-wrap: balance;
 }
 
 .selectorCursive {
+  display: inline-block;
+  padding-right: 0.12em;
   color: #0866e8;
   font-family: var(--font-cursive), cursive;
-  font-size: 1.35em;
+  font-size: 1.32em;
   font-weight: 400;
   letter-spacing: 0;
 }
 
 .selectorDescription {
-  max-width: 350px;
+  max-width: 340px;
+  padding-bottom: 4px;
 }
 
 .selectorDescription p {
   margin: 0;
-  color: #7b899a;
+  color: #65798f;
   font-size: 13px;
   line-height: 1.9;
 }
 
-/* ======================================
-   APPLIANCE GRID
-====================================== */
-
 .applianceGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 14px;
+  counter-reset: appliance-card;
 }
 
 .applianceCard {
   position: relative;
-  min-width: 0;
-  min-height: 185px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-
-  padding: 19px;
-
-  background: #fbfcfe;
-  border: 1px solid #e6ebf1;
-  border-radius: 12px;
-
+  min-width: 0;
+  min-height: 184px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid #dce7f1;
+  border-radius: 16px;
+  color: inherit;
   text-align: left;
   cursor: pointer;
-
+  background: rgba(255, 255, 255, 0.75);
+  counter-increment: appliance-card;
+  box-shadow: 0 8px 18px rgba(17, 55, 91, 0.025);
   transition:
     transform 0.3s ease,
-    background 0.3s ease,
     border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+  animation: cardRise 0.55s cubic-bezier(0.2, 0.75, 0.25, 1) backwards;
+}
+
+.applianceCard::before {
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  right: 17px;
+  color: #93a7bb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  content: "0" counter(appliance-card);
+  transition: color 0.28s ease, transform 0.28s ease;
+}
+
+.applianceCard:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.applianceCard:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.applianceCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.applianceCard:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.applianceCard:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+.applianceCard:nth-child(6) {
+  animation-delay: 0.38s;
+}
+
+.applianceCard::after {
+  position: absolute;
+  right: 18px;
+  bottom: 0;
+  left: 18px;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #0866e8);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.32s ease;
 }
 
 .applianceCard:hover {
-  transform: translateY(-5px);
+  z-index: 1;
+  border-color: rgba(8, 102, 232, 0.38);
   background: #ffffff;
-  border-color: #b4cff5;
-  box-shadow: 0 15px 35px rgba(11, 34, 61, 0.055);
+  box-shadow: 0 18px 34px rgba(18, 62, 101, 0.11);
+  transform: translateY(-6px);
+}
+
+.applianceCard:hover::after {
+  transform: scaleX(1);
+}
+
+.applianceCard:hover::before {
+  color: #0866e8;
+  transform: translateY(-2px);
 }
 
 .applianceCard.selected {
-  background: #f0f6ff;
   border-color: #0866e8;
+  background: linear-gradient(145deg, #f0f7ff 0%, #ffffff 100%);
+  box-shadow:
+    0 16px 30px rgba(8, 102, 232, 0.15),
+    inset 0 0 0 1px rgba(8, 102, 232, 0.08);
+  animation: selectionPulse 0.48s ease-out backwards;
 }
 
-.cardNumber {
-  color: #a5b0be;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
+.applianceCard.selected::after {
+  transform: scaleX(1);
+}
+
+.applianceCard.selected::before {
+  color: #0866e8;
 }
 
 .applianceIcon {
-  width: 52px;
-  height: 52px;
-
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background: #eaf1f9;
-  color: #0b223d;
-  border-radius: 12px;
+  width: 53px;
+  height: 53px;
+  border: 1px solid #dbe9f6;
+  border-radius: 15px;
+  color: #0b477f;
+  background: linear-gradient(145deg, #eef6ff, #dfeeff);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
   font-size: 21px;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
 
 .applianceCard:hover .applianceIcon,
 .applianceCard.selected .applianceIcon {
-  background: #dceaff;
-  color: #0866e8;
+  color: #ffffff;
+  background: linear-gradient(145deg, #1680f5, #0866e8);
+  box-shadow: 0 10px 20px rgba(8, 102, 232, 0.23);
+  transform: translateY(-2px);
 }
 
 .applianceName {
-  color: #233950;
+  position: relative;
+  z-index: 1;
+  max-width: 105px;
+  padding-right: 14px;
+  color: #183652;
   font-size: 12px;
-  font-weight: 700;
-  line-height: 1.5;
+  font-weight: 800;
+  line-height: 1.48;
 }
 
 .cardArrow {
   position: absolute;
-  right: 16px;
-  bottom: 20px;
-
-  color: #9caabb;
-  font-size: 12px;
-}
-
-.applianceCard.selected .cardArrow {
-  color: #0866e8;
-}
-
-.selectedCheck {
-  position: absolute;
-  top: 17px;
+  z-index: 1;
   right: 17px;
-  color: #0866e8;
-  font-size: 14px;
+  bottom: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  color: #5d7792;
+  background: rgba(232, 241, 250, 0.88);
+  font-size: 10px;
+  transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
 
-/* ======================================
-   SELECTOR FOOTER
-====================================== */
+.applianceCard:hover .cardArrow,
+.applianceCard.selected .cardArrow {
+  color: #ffffff;
+  background: #0866e8;
+  transform: translateX(2px);
+}
 
 .selectorFooter {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
-
+  gap: 24px;
   margin-top: 30px;
+}
+
+.selectionFeedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 0 0;
+  color: #7a8b9d;
+  font-size: 12px;
+  font-weight: 700;
+  transition: color 0.28s ease, transform 0.28s ease;
+}
+
+.selectionFeedback::before {
+  width: 28px;
+  height: 2px;
+  background: #b5c8db;
+  content: "";
+  transition: width 0.28s ease, background 0.28s ease;
+}
+
+.selectionFeedbackActive {
+  color: #0b477f;
+  transform: translateX(3px);
+}
+
+.selectionFeedbackActive::before {
+  width: 42px;
+  background: #0866e8;
 }
 
 .continueButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 22px;
-
-  min-height: 51px;
+  gap: 18px;
+  min-height: 54px;
   padding: 15px 23px;
-
-  background: #0b223d;
+  border-radius: 11px;
   color: #ffffff;
-  border-radius: 8px;
-
+  background: linear-gradient(105deg, #0b223d 0%, #0b223d 42%, #0c3c6b 58%, #0b223d 76%);
+  background-size: 210% 100%;
+  background-position: 0 0;
+  box-shadow: 0 14px 25px rgba(11, 34, 61, 0.18);
   font-size: 13px;
-  font-weight: 600;
-
-  transition:
-    background 0.3s ease,
-    transform 0.3s ease;
+  font-weight: 700;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background-position 0.48s ease;
 }
 
 .continueButton:hover {
-  background: #0866e8;
-  transform: translateY(-2px);
+  background-position: 100% 0;
+  box-shadow: 0 18px 28px rgba(8, 102, 232, 0.23);
+  transform: translateY(-3px);
 }
 
-/* ======================================
-   TABLET
-====================================== */
+.continueButton svg {
+  transition: transform 0.28s ease;
+}
+
+.continueButton:hover svg {
+  transform: translateX(3px);
+}
 
 @media (max-width: 1200px) {
   .heroContainer {
-    gap: 45px;
+    grid-template-columns: minmax(0, 1fr) minmax(385px, 0.92fr);
+    gap: 44px;
   }
 
   .heroTitle {
-    font-size: 55px;
+    font-size: clamp(46px, 5.1vw, 64px);
   }
 
   .heroVisual {
-    min-height: 540px;
+    min-height: 560px;
   }
 
   .imageFrame {
-    height: 530px;
-  }
-
-  .floatingCard {
-    left: -15px;
+    height: clamp(500px, 47vw, 570px);
   }
 
   .applianceGrid {
@@ -569,43 +766,44 @@
   }
 }
 
-/* ======================================
-   TABLET AND BELOW
-====================================== */
-
 @media (max-width: 1024px) {
   .hero {
-    padding: 75px 5% 85px;
+    padding-top: 72px;
   }
 
   .heroContainer {
-    grid-template-columns: 1fr;
-    gap: 55px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 54px;
   }
 
   .heroContent {
+    max-width: 720px;
+    margin: 0 auto;
     text-align: center;
   }
 
-  .eyebrow,
+  .heroTitle,
+  .heroDescription {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   .heroButtons,
   .heroFeatures {
     justify-content: center;
-  }
-
-  .heroDescription {
-    margin-left: auto;
     margin-right: auto;
-  }
-
-  .scrollLink {
-    margin-top: 45px;
+    margin-left: auto;
   }
 
   .heroVisual {
     width: 100%;
-    max-width: 560px;
+    max-width: 580px;
+    min-height: 585px;
     margin: 0 auto;
+  }
+
+  .heroVisual::before {
+    right: -12px;
   }
 
   .verticalLabel {
@@ -619,45 +817,42 @@
   }
 
   .selectorDescription {
-    max-width: 560px;
+    max-width: 570px;
   }
 }
 
-/* ======================================
-   MOBILE
-====================================== */
-
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .hero {
-    padding: 55px 20px 65px;
+    padding: 54px 20px 70px;
   }
 
-  .heroContainer {
-    gap: 45px;
-  }
-
-  .eyebrow {
-    justify-content: center;
-    font-size: 9px;
-    letter-spacing: 1.3px;
+  .hero::before {
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
   }
 
   .heroTitle {
-    font-size: clamp(37px, 10vw, 47px);
-    letter-spacing: -1.8px;
+    margin-bottom: 23px;
+    font-size: clamp(39px, 10.2vw, 54px);
+    letter-spacing: -0.064em;
   }
 
   .cursiveText {
-    font-size: 1.35em;
+    font-size: 1.28em;
   }
 
   .heroDescription {
+    margin-bottom: 28px;
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.82;
   }
 
   .heroButtons {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .primaryButton,
@@ -666,11 +861,16 @@
   }
 
   .heroFeatures {
-    gap: 13px;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 5px;
   }
 
   .feature {
-    font-size: 10px;
+    justify-content: flex-start;
+    min-height: 39px;
+    padding: 7px 10px;
   }
 
   .featureDivider {
@@ -678,63 +878,74 @@
   }
 
   .heroVisual {
-    min-height: 425px;
+    min-height: 445px;
+    padding-top: 12px;
+  }
+
+  .heroVisual::before {
+    right: -8px;
+    width: calc(100% - 9px);
+    height: calc(100% - 15px);
+    border-radius: 0;
+  }
+
+  .heroVisual::after {
+    right: auto;
+    bottom: 20px;
+    width: 105px;
+    height: 4px;
   }
 
   .imageFrame {
-    height: 420px;
-    border-radius: 180px 180px 10px 10px;
+    width: calc(100% - 10px);
+    height: 440px;
+    margin: 0 auto;
+    border-width: 7px;
+    border-radius: 14px;
   }
 
   .imageBottomText {
-    left: 22px;
-    bottom: 25px;
+    right: 25px;
+    bottom: 27px;
+    left: 25px;
   }
 
   .imageBottomText p {
-    font-size: 18px;
+    font-size: 20px;
   }
 
-  .floatingCard {
-    left: -5px;
-    bottom: 95px;
-    padding: 12px;
+  .heroServicePanel {
+    top: 18px;
+    left: 18px;
+    width: min(208px, calc(100% - 36px));
   }
 
-  .floatingIcon {
-    width: 35px;
-    height: 35px;
-    font-size: 15px;
-  }
-
-  .floatingCard strong {
-    font-size: 10px;
-  }
-
-  .floatingCard span {
+  .heroServicePanel span {
+    min-height: 34px;
+    padding: 7px 10px;
     font-size: 9px;
   }
 
-  .floatingCheck {
-    display: none;
+  .serviceSelector {
+    padding: 0 20px 78px;
   }
 
-  /* SERVICE SELECTOR */
-
-  .serviceSelector {
-    padding: 70px 20px 80px;
+  .selectorContainer {
+    padding: 34px 18px 20px;
+    border-radius: 21px;
   }
 
   .selectorHeader {
-    display: block;
+    margin-bottom: 30px;
   }
 
   .selectorTitleGroup h2 {
-    font-size: 34px;
+    font-size: clamp(33px, 9vw, 43px);
   }
 
-  .selectorDescription {
-    margin-top: 20px;
+  .selectorDescription p {
+    font-size: 13px;
+    line-height: 1.8;
   }
 
   .applianceGrid {
@@ -743,24 +954,39 @@
   }
 
   .applianceCard {
-    min-height: 160px;
-    padding: 15px;
+    min-height: 158px;
+    padding: 14px;
+    border-radius: 13px;
   }
 
   .applianceIcon {
     width: 45px;
     height: 45px;
-    font-size: 19px;
+    border-radius: 13px;
+    font-size: 18px;
   }
 
   .applianceName {
     font-size: 11px;
-    padding-right: 12px;
+  }
+
+  .cardArrow {
+    right: 12px;
+    bottom: 13px;
+    width: 25px;
+    height: 25px;
   }
 
   .selectorFooter {
     flex-direction: column;
     align-items: stretch;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .selectionFeedback {
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .continueButton {
@@ -768,25 +994,133 @@
   }
 }
 
-/* ======================================
-   ACCESSIBILITY
-====================================== */
-
 .applianceCard:focus-visible,
 .primaryButton:focus-visible,
 .secondaryButton:focus-visible,
 .continueButton:focus-visible {
-  outline: 2px solid #0866e8;
+  outline: 3px solid #0866e8;
   outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .primaryButton,
   .secondaryButton,
+  .primaryButton svg,
+  .secondaryButton svg,
+  .continueButton,
+  .continueButton svg,
   .heroImage,
+  .imageFrame::before,
+  .imageOverlay,
+  .heroServicePanel,
+  .heroServicePanel span,
+  .imageBottomText,
   .applianceCard,
+  .applianceCard::after,
+  .applianceCard::before,
   .applianceIcon,
-  .continueButton {
+  .cardArrow,
+  .heroContent,
+  .imageFrame,
+  .selectorContainer,
+  .selectionFeedback {
+    animation: none;
     transition: none;
+  }
+}
+
+@keyframes heroContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mediaReveal {
+  from {
+    opacity: 0;
+    transform: translateX(28px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes lineReveal {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes selectionPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(8, 102, 232, 0.28);
+  }
+
+  100% {
+    box-shadow:
+      0 16px 30px rgba(8, 102, 232, 0.15),
+      inset 0 0 0 1px rgba(8, 102, 232, 0.08);
+  }
+}
+
+@keyframes panelRowIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes selectorEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .selectorContainer {
+      animation-timeline: view();
+      animation-range: entry 8% cover 26%;
+    }
+
+    .applianceCard {
+      animation-timeline: view();
+      animation-range: entry 10% cover 28%;
+    }
   }
 }

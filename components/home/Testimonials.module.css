@@ -1,0 +1,938 @@
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 100px 24px 90px;
+
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(8, 102, 232, 0.13),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #071b32 0%,
+      #0b223d 55%,
+      #102e50 100%
+    );
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   BACKGROUND PATTERN
+========================================= */
+
+.backgroundPattern {
+  position: absolute;
+
+  inset: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+
+  grid-auto-rows: 90px;
+
+  align-items: center;
+  justify-items: center;
+
+  pointer-events: none;
+
+  opacity: 0.045;
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+.patternIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 28px;
+}
+
+.patternIcon:nth-child(3n) {
+  transform: rotate(-10deg);
+}
+
+.patternIcon:nth-child(4n) {
+  transform: scale(0.8);
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 1320px;
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  margin-bottom: 48px;
+}
+
+.headingContent {
+  max-width: 760px;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: #74b4ff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.heading {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(38px, 3.8vw, 56px);
+
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  letter-spacing: -1.5px;
+}
+
+.heading em {
+  color: #74b4ff;
+
+  font-weight: 400;
+}
+
+.description {
+  max-width: 610px;
+
+  margin-top: 18px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   RATING CARD
+========================================= */
+
+.ratingCard {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  min-width: 340px;
+
+  padding: 25px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.17);
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.ratingNumber {
+  color: #ffffff;
+
+  font-family: Georgia, serif;
+
+  font-size: 75px;
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.ratingDetails {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  font-size: 15px;
+}
+
+.starFilled {
+  color: #ff9f1c;
+}
+
+.starEmpty {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.ratingDetails p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 13px;
+}
+
+.ratingLink {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 3px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   FOUR COLUMN GRID
+========================================= */
+
+.testimonialGrid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  align-items: start;
+}
+
+/* =========================================
+   REVIEW COLUMN
+========================================= */
+
+.reviewColumn {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  min-width: 0;
+}
+
+/* =========================================
+   REVIEW CARD
+========================================= */
+
+.reviewCard {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 280px;
+
+  padding: 22px 19px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-6px);
+
+  background: rgba(255, 255, 255, 0.085);
+
+  border-color: rgba(116, 180, 255, 0.45);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================
+   REVIEW TOP
+========================================= */
+
+.reviewTop {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.reviewIcon {
+  color: #74b4ff;
+
+  font-size: 17px;
+
+  opacity: 0.75;
+}
+
+/* =========================================
+   REVIEW TEXT
+========================================= */
+
+.reviewText {
+  margin: 0 0 22px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 13.5px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   REVIEW BOTTOM
+========================================= */
+
+.reviewBottom {
+  margin-top: auto;
+}
+
+.customerInfo {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-bottom: 8px;
+}
+
+.customerInfo strong {
+  color: #ffffff;
+
+  font-size: 12.5px;
+
+  font-weight: 700;
+}
+
+.customerInfo span {
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 11.5px;
+}
+
+.reviewLocation {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 11.5px;
+}
+
+.reviewSource {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 11.5px;
+
+  text-decoration: none;
+}
+
+a.reviewSource:hover {
+  color: #74b4ff;
+}
+
+.reviewSource svg {
+  font-size: 10px;
+}
+
+/* =========================================
+   VIDEO CARD WRAPPER
+========================================= */
+
+.videoCardWrapper {
+  min-width: 0;
+}
+
+/* =========================================
+   VIDEO CARD
+========================================= */
+
+.videoCard {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 9 / 16;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 18px;
+
+  background: #071b32;
+
+  overflow: hidden;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.videoCard:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 28px 55px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================
+   VIDEO GRADIENT
+========================================= */
+
+.videoGradient {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.42),
+    transparent 30%,
+    transparent 65%,
+    rgba(0, 0, 0, 0.5)
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   VIDEO CONTROLS
+========================================= */
+
+.videoControls {
+  position: absolute;
+
+  top: 14px;
+  left: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  z-index: 5;
+}
+
+.controlButton {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(11, 34, 61, 0.65);
+
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.controlButton:hover {
+  background: #0866e8;
+
+  transform: scale(1.08);
+}
+
+/* =========================================
+   VIDEO BRAND
+========================================= */
+
+.videoBrand {
+  position: absolute;
+
+  top: 19px;
+  right: 14px;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.brandIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: #0866e8;
+
+  color: #ffffff;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   CENTER PLAY BUTTON
+========================================= */
+
+.centerPlayButton {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 64px;
+  height: 64px;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(12px);
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.centerPlayButton:hover {
+  background: #0866e8;
+
+  box-shadow: 0 0 0 8px rgba(8, 102, 232, 0.2);
+}
+
+/* =========================================
+   VIDEO BOTTOM OVERLAY
+========================================= */
+
+.videoBottomOverlay {
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 15px;
+
+  z-index: 4;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.videoBottomOverlay span {
+  padding: 8px 12px;
+
+  border-radius: 8px;
+
+  background: rgba(0, 0, 0, 0.58);
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-align: center;
+}
+
+/* =========================================
+   VIDEO CAPTION
+========================================= */
+
+.videoCaption {
+  margin-top: 13px;
+}
+
+.videoCaption h3 {
+  margin: 0 0 5px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+.videoCaption p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 11.5px;
+}
+
+/* =========================================
+   BOTTOM SECTION
+========================================= */
+
+.bottomSection {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 65px;
+
+  padding-top: 30px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.bottomText {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 13px;
+}
+
+.bottomText svg {
+  flex-shrink: 0;
+
+  color: #74b4ff;
+
+  font-size: 17px;
+}
+
+/* =========================================
+   RESPONSIVE — LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 90px 22px;
+  }
+
+  .testimonialGrid {
+    gap: 12px;
+  }
+
+  .reviewColumn {
+    gap: 12px;
+  }
+
+  .reviewCard {
+    padding: 19px 15px;
+  }
+
+  .reviewText {
+    font-size: 12.5px;
+  }
+
+  .heading {
+    font-size: 46px;
+  }
+
+  .videoBrand {
+    font-size: 10px;
+  }
+
+  .controlButton {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 992px) {
+  .header {
+    align-items: flex-start;
+
+    gap: 30px;
+  }
+
+  .ratingCard {
+    min-width: 270px;
+
+    padding: 20px;
+  }
+
+  .ratingNumber {
+    font-size: 58px;
+  }
+
+  .testimonialGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+  }
+
+  .reviewCard {
+    min-height: 250px;
+
+    padding: 22px;
+  }
+
+  .videoCard {
+    max-height: 560px;
+  }
+
+  .videoBrand {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 75px 20px;
+  }
+
+  .header {
+    flex-direction: column;
+
+    gap: 28px;
+
+    margin-bottom: 38px;
+  }
+
+  .heading {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .ratingCard {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  .testimonialGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+  }
+
+  .reviewCard {
+    min-height: 0;
+  }
+
+  .videoCard {
+    max-height: none;
+  }
+
+  .backgroundPattern {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* =========================================
+   RESPONSIVE — SMALL MOBILE
+========================================= */
+
+@media (max-width: 540px) {
+  .section {
+    padding: 65px 16px;
+  }
+
+  .heading {
+    font-size: 36px;
+  }
+
+  .testimonialGrid {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .reviewColumn {
+    gap: 18px;
+  }
+
+  .reviewCard {
+    padding: 24px 22px;
+  }
+
+  .reviewText {
+    font-size: 14px;
+  }
+
+  .videoCard {
+    width: 100%;
+
+    max-width: 390px;
+
+    margin: 0 auto;
+  }
+
+  .videoCaption {
+    max-width: 390px;
+
+    margin: 14px auto 0;
+  }
+
+  .ratingCard {
+    gap: 20px;
+  }
+
+  .ratingNumber {
+    font-size: 65px;
+  }
+
+  .bottomText {
+    align-items: flex-start;
+
+    line-height: 1.7;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .reviewCard,
+  .videoCard,
+  .controlButton,
+  .centerPlayButton {
+    transition: none;
+  }
+}

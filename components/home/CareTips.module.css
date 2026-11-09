@@ -1,0 +1,878 @@
+/* =========================================
+   CARE TIPS SECTION
+========================================= */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 110px 24px 120px;
+  background: #ffffff;
+  overflow: visible;
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: clamp(48px, 7vw, 90px);
+}
+
+/* =========================================
+   LEFT COLUMN
+========================================= */
+
+.leftColumn {
+  min-width: 0;
+}
+
+.introBlock {
+  margin-bottom: 40px;
+}
+
+.heading {
+  margin: 0;
+
+  color: #0b223d;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 3.8vw, 56px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+}
+
+.heading em {
+  color: #0866e8;
+  font-weight: 400;
+}
+
+.description {
+  max-width: 520px;
+  margin-top: 22px;
+
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   APPLIANCE LIST
+========================================= */
+
+.applianceList {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  max-width: 390px;
+}
+
+.applianceButton {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  width: 100%;
+  min-height: 56px;
+
+  padding: 7px 16px 7px 8px;
+
+  border: 1px solid transparent;
+  border-radius: 50px;
+
+  background: transparent;
+  color: #0b223d;
+
+  text-align: left;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.applianceButton:hover {
+  background: #edf5ff;
+  transform: translateX(4px);
+}
+
+.applianceActive {
+  background: #0b223d;
+  color: #ffffff;
+
+  box-shadow: 0 10px 24px rgba(11, 34, 61, 0.13);
+}
+
+.applianceActive:hover {
+  background: #0b223d;
+  transform: translateX(0);
+}
+
+.applianceIcon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8f1fb;
+  overflow: hidden;
+}
+
+.iconImage {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.applianceArrow {
+  margin-left: auto;
+  font-size: 12px;
+
+  opacity: 0;
+  transform: translateX(-8px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.applianceActive .applianceArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================================
+   RIGHT COLUMN
+========================================= */
+
+.rightColumn {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   CARD STACK AREA
+========================================= */
+
+.stackArea {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 0;
+
+  padding: 45px 35px;
+}
+
+.cardStack {
+  position: relative;
+
+  width: 100%;
+  max-width: 470px;
+  height: auto;
+  aspect-ratio: 47 / 53;
+
+  perspective: 1200px;
+}
+
+.stackCard {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    145deg,
+    #fffdf6 0%,
+    #fff8e9 60%,
+    #f9edcf 100%
+  );
+
+  box-shadow:
+    0 25px 55px rgba(11, 34, 61, 0.12),
+    0 5px 15px rgba(11, 34, 61, 0.04);
+
+  overflow: hidden;
+
+  transform-origin: center center;
+}
+
+/* CARD BEHIND */
+
+.thirdCard {
+  z-index: 1;
+
+  transform:
+    translate(24px, 22px)
+    rotate(7deg)
+    scale(0.96);
+
+  background: #e8e6db;
+}
+
+.secondCard {
+  z-index: 2;
+
+  transform:
+    translate(-17px, 12px)
+    rotate(-5deg)
+    scale(0.98);
+
+  background: #f1ede2;
+}
+
+.stackBackground {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(221, 218, 201, 0.4)
+  );
+}
+
+/* ACTIVE CARD */
+
+.activeCard {
+  z-index: 5;
+
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.activeCard:active {
+  cursor: grabbing;
+}
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.cardContent {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 38px 34px;
+
+  overflow: hidden;
+}
+
+.cardText {
+  position: relative;
+  z-index: 3;
+
+  max-width: 100%;
+}
+
+.cardTitle {
+  margin: 0;
+
+  max-width: 390px;
+
+  color: #0b223d;
+
+  font-size: clamp(30px, 2.7vw, 42px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.7px;
+}
+
+.highlight {
+  color: #0866e8;
+}
+
+.cardDescription {
+  position: relative;
+  z-index: 3;
+
+  max-width: 270px;
+  margin-top: 22px;
+
+  color: #526171;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   APPLIANCE IMAGE
+========================================= */
+
+.cardImage {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 60%;
+  height: 48%;
+
+  border-top-left-radius: 24px;
+
+  overflow: hidden;
+
+  background: #e2e8f0;
+}
+
+.tipImage {
+  object-fit: cover;
+
+  transition: transform 0.8s ease;
+}
+
+.activeCard:hover .tipImage {
+  transform: scale(1.05);
+}
+
+/* =========================================
+   CARD NEXT BUTTON
+========================================= */
+
+.cardNext {
+  position: absolute;
+
+  left: 32px;
+  bottom: 32px;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: #e4f0f8;
+  color: #0b223d;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 12px rgba(11, 34, 61, 0.06);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.cardNext:hover {
+  background: #0866e8;
+  color: #ffffff;
+
+  transform: translateY(-3px);
+}
+
+.cardNext svg {
+  font-size: 12px;
+}
+
+/* DECORATION */
+
+.cardDecoration {
+  position: absolute;
+
+  left: 35px;
+  bottom: 105px;
+
+  color: rgba(8, 102, 232, 0.055);
+
+  font-family: Georgia, serif;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   BOTTOM CONTROLS
+========================================= */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 470px;
+
+  margin-top: 10px;
+}
+
+.circleButton {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d5dce5;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #0b223d;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.circleButton:hover {
+  background: #0b223d;
+  color: white;
+  border-color: #0b223d;
+
+  transform: translateX(-3px);
+}
+
+/* PROGRESS */
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.progress > span {
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.progressBars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.progressBar {
+  width: 22px;
+  height: 4px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #d7dee7;
+
+  cursor: pointer;
+
+  transition:
+    width 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.progressActive {
+  width: 32px;
+  background: #0866e8;
+}
+
+/* NEXT TIP BUTTON */
+
+.nextButton {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 13px 20px;
+
+  border: 1px solid #d5dce5;
+  border-radius: 50px;
+
+  background: #ffffff;
+  color: #0b223d;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nextButton:hover {
+  background: #0b223d;
+  color: #ffffff;
+  border-color: #0b223d;
+
+  transform: translateX(3px);
+}
+
+.nextButton svg {
+  font-size: 12px;
+}
+
+/* =========================================
+   PLAY / PAUSE
+========================================= */
+
+.playControls {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 24px;
+}
+
+.playButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 11px 19px;
+
+  border: 1px solid #d5dce5;
+  border-radius: 50px;
+
+  background: #ffffff;
+  color: #526171;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.playButton:hover {
+  background: #edf5ff;
+  color: #0866e8;
+}
+
+.playButton svg {
+  font-size: 11px;
+}
+
+/* SWIPE HINT */
+
+.swipeHint {
+  margin-top: 20px;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+  text-align: center;
+}
+
+/* =========================================
+   RESPONSIVE - LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .container {
+    gap: 60px;
+  }
+
+  .stackArea {
+    padding: 40px 25px;
+  }
+
+  .cardStack {
+    height: auto;
+  }
+
+  .cardTitle {
+    font-size: 35px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 24px 100px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .leftColumn {
+    width: 100%;
+  }
+
+  .introBlock {
+    margin-bottom: 30px;
+  }
+
+  .applianceList {
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 10px;
+  }
+
+  .applianceButton {
+    width: auto;
+    min-height: 48px;
+
+    padding: 5px 16px 5px 6px;
+  }
+
+  .applianceIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .iconImage {
+    width: 30px;
+    height: 30px;
+  }
+
+  .applianceArrow {
+    display: none;
+  }
+
+  .rightColumn {
+    width: 100%;
+  }
+
+  .stackArea {
+    min-height: 0;
+  }
+
+  .cardStack {
+    max-width: 470px;
+    height: auto;
+  }
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 65px 18px 85px;
+  }
+
+  .container {
+    gap: 35px;
+  }
+
+  .heading {
+    font-size: 39px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .applianceList {
+    gap: 8px;
+  }
+
+  .applianceButton {
+    font-size: 12px;
+
+    min-height: 42px;
+
+    gap: 8px;
+
+    padding: 5px 12px 5px 5px;
+  }
+
+  .applianceIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .iconImage {
+    width: 27px;
+    height: 27px;
+  }
+
+  .stackArea {
+    min-height: 0;
+
+    padding: 30px 12px;
+  }
+
+  .cardStack {
+    width: 100%;
+    height: auto;
+  }
+
+  .stackCard {
+    border-radius: 18px;
+  }
+
+  .cardContent {
+    padding: 26px 22px;
+  }
+
+  .cardTitle {
+    font-size: clamp(25px, 7vw, 34px);
+    letter-spacing: -1px;
+  }
+
+  .cardDescription {
+    max-width: 210px;
+
+    margin-top: 15px;
+
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .cardImage {
+    width: 58%;
+    height: 42%;
+
+    border-top-left-radius: 18px;
+  }
+
+  .cardNext {
+    left: 20px;
+    bottom: 20px;
+
+    padding: 11px 15px;
+
+    font-size: 12px;
+  }
+
+  .cardDecoration {
+    left: 20px;
+    bottom: 85px;
+
+    font-size: 65px;
+  }
+
+  .controls {
+    max-width: 100%;
+  }
+
+  .circleButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nextButton {
+    padding: 11px 15px;
+    gap: 10px;
+
+    font-size: 12px;
+  }
+
+  .progress > span {
+    font-size: 12px;
+  }
+
+  .progressBar {
+    width: 15px;
+  }
+
+  .progressActive {
+    width: 24px;
+  }
+
+  .swipeHint {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .heading {
+    font-size: 34px;
+  }
+
+  .cardStack {
+    height: auto;
+  }
+
+  .cardTitle {
+    font-size: 26px;
+  }
+
+  .cardDescription {
+    max-width: 190px;
+    font-size: 11px;
+  }
+
+  .cardImage {
+    width: 55%;
+    height: 39%;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .applianceButton,
+  .applianceArrow,
+  .tipImage,
+  .cardNext,
+  .circleButton,
+  .nextButton,
+  .progressBar,
+  .playButton {
+    transition: none;
+  }
+}

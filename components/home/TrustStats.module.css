@@ -1,0 +1,405 @@
+/* =========================================
+   TRUST SECTION
+========================================= */
+
+.trustSection {
+  width: 100%;
+  background: #ffffff;
+}
+
+/* =========================================
+   DISCLAIMER
+========================================= */
+
+.disclaimer {
+  width: 100%;
+
+  padding: 20px 5%;
+
+  background: #f7faff;
+
+  text-align: center;
+
+  border-bottom: 1px solid #e8eef5;
+}
+
+.disclaimer p {
+  margin: 0;
+
+  color: #344b62;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+.disclaimer strong {
+  color: #0b223d;
+
+  font-weight: 700;
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
+}
+
+/* =========================================
+   STATS BAR
+========================================= */
+
+.statsBar {
+  position: relative;
+
+  width: 100%;
+
+  padding: 45px 5%;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    110deg,
+    #071c32 0%,
+    #0b2947 50%,
+    #0b223d 100%
+  );
+}
+
+/* SUBTLE BACKGROUND GLOW */
+
+.statsBar::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: -350px;
+  left: 30%;
+
+  border-radius: 50%;
+
+  background: rgba(8, 102, 232, 0.15);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.statsBar::after {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  right: -200px;
+  bottom: -300px;
+
+  border-radius: 50%;
+
+  background: rgba(56, 189, 248, 0.12);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   BACKGROUND PATTERN
+========================================= */
+
+.backgroundPattern {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-around;
+
+  gap: 70px;
+
+  overflow: hidden;
+
+  color: rgba(255, 255, 255, 0.035);
+
+  font-size: 65px;
+
+  pointer-events: none;
+}
+
+.backgroundPattern svg:nth-child(even) {
+  transform: translateY(45px);
+}
+
+.backgroundPattern svg:nth-child(odd) {
+  transform: translateY(-35px);
+}
+
+/* =========================================
+   STATS CONTAINER
+========================================= */
+
+.statsContainer {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 1380px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  align-items: stretch;
+}
+
+/* =========================================
+   STAT ITEM
+========================================= */
+
+.statItem {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  padding: 8px 24px;
+
+  min-width: 0;
+}
+
+/* DIVIDER */
+
+.statItem:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 1px;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.17);
+}
+
+/* =========================================
+   STAT HEADING
+========================================= */
+
+.statHeading {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-bottom: 10px;
+}
+
+.statIcon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-top: 4px;
+
+  color: #38bdf8;
+
+  font-size: 21px;
+}
+
+.statHeading h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(20px, 1.7vw, 27px);
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.statItem p {
+  margin: 0;
+
+  padding-left: 34px;
+
+  color: #b8c9d9;
+
+  font-family: var(--font-inter), sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   HOVER EFFECT
+========================================= */
+
+.statItem {
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-4px);
+}
+
+.statItem:hover .statIcon {
+  color: #ffffff;
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .statsContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    row-gap: 30px;
+  }
+
+  .statItem:nth-child(3)::after {
+    display: none;
+  }
+
+  .statItem:nth-child(4),
+  .statItem:nth-child(5) {
+    padding-top: 20px;
+  }
+
+  .statHeading h3 {
+    font-size: 23px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .disclaimer {
+    padding: 18px 20px;
+  }
+
+  .disclaimer p {
+    font-size: 11px;
+
+    line-height: 1.8;
+  }
+
+  .statsBar {
+    padding: 35px 20px;
+  }
+
+  .statsContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0;
+  }
+
+  .statItem {
+    padding: 20px 12px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .statItem:not(:last-child)::after {
+    display: none;
+  }
+
+  .statItem:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .statItem:last-child {
+    grid-column: 1 / -1;
+
+    align-items: center;
+
+    text-align: center;
+
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .statHeading {
+    gap: 9px;
+  }
+
+  .statIcon {
+    font-size: 17px;
+  }
+
+  .statHeading h3 {
+    font-size: 20px;
+  }
+
+  .statItem p {
+    padding-left: 0;
+
+    font-size: 11px;
+  }
+
+  .backgroundPattern {
+    font-size: 45px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .statHeading h3 {
+    font-size: 17px;
+  }
+
+  .statIcon {
+    font-size: 15px;
+  }
+
+  .statItem p {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .statItem {
+    transition: none;
+  }
+}

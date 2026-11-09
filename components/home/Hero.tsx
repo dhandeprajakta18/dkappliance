@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import {
   FaArrowRight,
+  FaArrowUpRightFromSquare,
   FaSnowflake,
   FaTemperatureLow,
   FaShirt,
@@ -15,13 +16,21 @@ import {
   FaScrewdriverWrench,
   FaCalendarCheck,
   FaHouse,
+  FaCheck,
+  FaStar,
+  FaShieldHalved,
+  FaCircleCheck,
 } from "react-icons/fa6";
 
 import styles from "./Hero.module.css";
 
+/* =========================================
+   APPLIANCE DATA
+========================================= */
+
 const appliances = [
   {
-    name: "Air Conditioner",
+    name: "AC",
     value: "AC Repair",
     icon: FaSnowflake,
   },
@@ -52,6 +61,10 @@ const appliances = [
   },
 ];
 
+/* =========================================
+   HERO COMPONENT
+========================================= */
+
 export default function Hero() {
   const [selectedService, setSelectedService] = useState("");
 
@@ -60,46 +73,52 @@ export default function Hero() {
     : "/book-repair";
 
   return (
-    <>
-      {/* HERO SECTION */}
+    <div className={styles.heroWrapper}>
+
+      {/* =====================================
+          MAIN HERO
+      ===================================== */}
 
       <section className={styles.hero}>
         <div className={styles.heroContainer}>
-          {/* LEFT SIDE */}
+
+          {/* LEFT CONTENT */}
 
           <div className={styles.heroContent}>
-            {/* <div className={styles.eyebrow}>
-              <span className={styles.eyebrowLine} />
-              HOME APPLIANCE REPAIR & SERVICE
-            </div> */}
+
+            {/* HEADING */}
 
             <h1 className={styles.heroTitle}>
-              Expert Care
+              Your Home.
               <br />
-              for Every
+
+              Our Expertise.
               <br />
-              <span className={styles.titleAccent}>
-                Corner of Your
+
+              <span className={styles.cursiveText}>
+                Exceptional Care.
               </span>
-              <br />
-              <span className={styles.cursiveText}>Home.</span>
             </h1>
 
+            {/* DESCRIPTION */}
+
             <p className={styles.heroDescription}>
-              Because a comfortable home deserves appliances
-              that work beautifully. Discover convenient,
-              professional repair services designed around
-              your everyday needs.
+              From cooling to cleaning, we keep your everyday
+              appliances running beautifully. Experience
+              professional repairs, trusted technicians,
+              and convenient doorstep service.
             </p>
 
             {/* BUTTONS */}
 
             <div className={styles.heroButtons}>
+
               <Link
                 href="/book-repair"
                 className={styles.primaryButton}
               >
-                Book a Service
+                Book a Repair
+
                 <FaArrowRight />
               </Link>
 
@@ -108,197 +127,265 @@ export default function Hero() {
                 className={styles.secondaryButton}
               >
                 Explore Services
-                <FaArrowRight aria-hidden="true" />
+
+                <FaArrowUpRightFromSquare />
               </Link>
+
             </div>
 
-            {/* SMALL FEATURES */}
+            {/* TRUST INFORMATION */}
 
-            <div className={styles.heroFeatures}>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>
-                  <FaScrewdriverWrench />
+            <div className={styles.trustRow}>
+
+              <div className={styles.trustItem}>
+                <span className={styles.trustIcon}>
+                  <FaCircleCheck />
                 </span>
 
-                <span>Appliance Repair</span>
-              </div>
-
-              <span className={styles.featureDivider} />
-
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>
-                  <FaCalendarCheck />
+                <span>
+                  Skilled Technicians
                 </span>
-
-                <span>Easy Booking</span>
               </div>
 
-              <span className={styles.featureDivider} />
+              <span className={styles.trustDivider} />
 
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>
+              <div className={styles.trustItem}>
+                <span className={styles.trustIcon}>
                   <FaHouse />
                 </span>
 
-                <span>Doorstep Service</span>
+                <span>
+                  Doorstep Service
+                </span>
               </div>
+
+              <span className={styles.trustDivider} />
+
+              <div className={styles.trustItem}>
+                <span className={styles.trustIcon}>
+                  <FaCalendarCheck />
+                </span>
+
+                <span>
+                  Easy Booking
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* =====================================
+              RIGHT IMAGE
+          ===================================== */}
+
+          <div className={styles.heroVisual}>
+
+            {/* BACKGROUND DECORATION */}
+
+            <div className={styles.imageDecoration} />
+
+            {/* MAIN IMAGE */}
+
+            <div className={styles.imageFrame}>
+
+              <Image
+                src="/images/technician1.png"
+                alt="DK Appliance Care professional technician"
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 45vw"
+                className={styles.heroImage}
+              />
+
+              <div className={styles.imageOverlay} />
+
+              {/* IMAGE LABEL */}
+
+              <div className={styles.imageLabel}>
+                <span className={styles.labelDot} />
+
+                PROFESSIONAL APPLIANCE CARE
+              </div>
+
+            </div>
+
+            {/* FLOATING SERVICE CARD */}
+
+            <div className={styles.floatingCard}>
+
+              <div className={styles.floatingCardTop}>
+
+                <div className={styles.floatingIcon}>
+                  <FaShieldHalved />
+                </div>
+
+                <div className={styles.floatingCheck}>
+                  <FaCheck />
+                </div>
+
+              </div>
+
+              <h3>
+                Expert Service,
+                <br />
+                Every Time.
+              </h3>
+
+              <p>
+                Reliable appliance repairs
+                with professional care
+                at your doorstep.
+              </p>
+
+              <div className={styles.floatingStars}>
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <FaStar key={star} />
+                ))}
+              </div>
+
+              <span className={styles.floatingFooter}>
+                DK APPLIANCE CARE
+              </span>
+
+            </div>
+
+            {/* DECORATIVE BADGE */}
+
+            <div className={styles.imageBadge}>
+              <FaScrewdriverWrench />
+
+              <span>
+                Repair
+                <br />
+                Specialists
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =====================================
+          BOOKING SELECTOR
+      ===================================== */}
+
+      <section
+        className={styles.serviceSelector}
+        id="our-services"
+      >
+
+        <div className={styles.selectorContainer}>
+
+          {/* LEFT SIDE */}
+
+          <div className={styles.selectorIntro}>
+
+            <h2>
+              Book Doorstep
+              <br />
+              <span>Repair</span>
+            </h2>
+
+            <p>
+              Select your appliance and let
+              our experts take care of the rest.
+            </p>
+
+            <div className={styles.selectorTrust}>
+              <FaCircleCheck />
+
+              <span>
+                Convenient home service
+              </span>
             </div>
 
           </div>
 
           {/* RIGHT SIDE */}
 
-          <div className={styles.heroVisual}>
-            <div className={styles.imageFrame}>
-              <Image
-                src="/images/technician1.png"
-                alt="Appliance repair technician providing professional service"
-                fill
-                preload
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className={styles.heroImage}
-              />
+          <div className={styles.selectorRight}>
 
-              <div className={styles.imageOverlay} />
+            {/* APPLIANCE GRID */}
 
-              {/* <div
-                className={styles.heroServicePanel}
-                aria-hidden="true"
+            <div className={styles.applianceGrid}>
+
+              {appliances.map((appliance) => {
+                const Icon = appliance.icon;
+
+                const isSelected =
+                  selectedService === appliance.value;
+
+                return (
+                  <button
+                    key={appliance.value}
+                    type="button"
+                    aria-pressed={isSelected}
+                    onClick={() =>
+                      setSelectedService(appliance.value)
+                    }
+                    className={`${styles.applianceCard} ${
+                      isSelected ? styles.selected : ""
+                    }`}
+                  >
+
+                    <span className={styles.applianceIcon}>
+                      <Icon />
+                    </span>
+
+                    <span className={styles.applianceName}>
+                      {appliance.name}
+                    </span>
+
+                    {isSelected && (
+                      <span className={styles.selectedCheck}>
+                        <FaCheck />
+                      </span>
+                    )}
+
+                  </button>
+                );
+              })}
+
+            </div>
+
+            {/* SELECTOR FOOTER */}
+
+            <div className={styles.selectorFooter}>
+
+              <p
+                className={styles.selectionFeedback}
+                aria-live="polite"
               >
-                <span>Choose a service</span>
-                <span>Book a repair</span>
-                <span>Doorstep service</span>
-              </div> */}
+                {selectedService ? (
+                  <>
+                    <FaCircleCheck />
 
-              <div className={styles.imageBottomText}>
-                {/* <span>DK APPLIANCE CARE</span> */}
-
-                <p>
-                  Thoughtful service.
-                  <br />
-                  Everyday comfort.
-                </p>
-              </div>
-            </div>
-
-            {/* FLOATING SERVICE CARD */}
-
-            {/* <div className={styles.floatingCard}>
-              <div className={styles.floatingIcon}>
-                <FaShieldHalved />
-              </div>
-
-              <div>
-                <strong>Professional Care</strong>
-                <span>For the home you love</span>
-              </div>
-
-              <FaCircleCheck className={styles.floatingCheck} />
-            </div> */}
-
-            {/* DECORATIVE TEXT */}
-
-            <div className={styles.verticalLabel}>
-              REPAIR · SERVICE · CARE
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* APPLIANCE SELECTOR */}
-
-      <section
-        className={styles.serviceSelector}
-        id="our-services"
-      >
-        <div className={styles.selectorContainer}>
-          <div className={styles.selectorHeader}>
-            <div className={styles.selectorTitleGroup}>
-              {/* <span className={styles.sectionEyebrow}>
-                OUR EXPERTISE
-              </span> */}
-
-              <h2>
-                We take care of
-                <br />
-                <span className={styles.selectorCursive}>
-                  what matters.
-                </span>
-              </h2>
-            </div>
-
-            <div className={styles.selectorDescription}>
-              <p>
-                From everyday essentials to the appliances
-                you rely on most, choose what needs attention
-                and start your booking.
+                    {selectedService} selected
+                  </>
+                ) : (
+                  "Choose an appliance to get started"
+                )}
               </p>
+
+              <Link
+                href={bookingUrl}
+                className={styles.continueButton}
+              >
+                Continue to Booking
+
+                <FaArrowRight />
+              </Link>
+
             </div>
+
           </div>
 
-          {/* APPLIANCE GRID */}
-
-          <div className={styles.applianceGrid}>
-            {appliances.map((appliance) => {
-              const Icon = appliance.icon;
-
-              const isSelected =
-                selectedService === appliance.value;
-
-              return (
-                <button
-                  key={appliance.value}
-                  type="button"
-                  aria-pressed={isSelected}
-                  onClick={() =>
-                    setSelectedService(appliance.value)
-                  }
-                  className={`${styles.applianceCard} ${
-                    isSelected ? styles.selected : ""
-                  }`}
-                >
-                  <span className={styles.applianceIcon}>
-                    <Icon />
-                  </span>
-
-                  <span className={styles.applianceName}>
-                    {appliance.name}
-                  </span>
-
-                  <span className={styles.cardArrow}>
-                    <FaArrowRight aria-hidden="true" />
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* SELECTOR FOOTER */}
-
-          <div className={styles.selectorFooter}>
-            <p
-              className={`${styles.selectionFeedback} ${
-                selectedService
-                  ? styles.selectionFeedbackActive
-                  : ""
-              }`}
-              aria-live="polite"
-            >
-              {selectedService
-                ? `${selectedService} selected`
-                : "Choose an appliance to continue"}
-            </p>
-
-            <Link
-              href={bookingUrl}
-              className={styles.continueButton}
-            >
-              Continue to Booking
-              <FaArrowRight />
-            </Link>
-          </div>
         </div>
+
       </section>
-    </>
+
+    </div>
   );
 }

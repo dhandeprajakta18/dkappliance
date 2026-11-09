@@ -126,6 +126,7 @@ export default function Navbar() {
           margin: auto;
           padding: 12px 5%;
           min-height: 90px;
+          min-width: 0;
 
           display: flex;
           align-items: center;
@@ -153,6 +154,7 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 26px;
+          min-width: 0;
         }
 
         .desktop-nav :global(.nav-link) {
@@ -266,7 +268,7 @@ export default function Navbar() {
 
         /* MOBILE */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1180px) {
           .desktop-nav {
             display: none;
           }
@@ -353,6 +355,10 @@ export default function Navbar() {
 
           .navbar-container {
             min-height: 70px;
+          }
+
+          .mobile-nav.show {
+            max-height: calc(100dvh - 70px);
           }
         }
       `}</style>

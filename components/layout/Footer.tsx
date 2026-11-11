@@ -49,18 +49,18 @@ const services = [
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Our Services", href: "/services" },
+  { label: "Our Services", href: "/#services" },
   { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
-  { label: "My Bookings", href: "/my-bookings" },
+  { label: "Request a Callback", href: "/contact#callback" },
 ];
 
 const companyLinks = [
   { label: "About Us", href: "/about" },
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
-  { label: "My Bookings", href: "/my-bookings" },
+  { label: "Request a Callback", href: "/contact#callback" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   {
     label: "Terms & Conditions",
@@ -110,7 +110,7 @@ export default function Footer() {
             TOP CTA
         ===================================== */}
 
-        <div className="footer-cta">
+        {/* <div className="footer-cta">
 
           <div className="footer-cta-container">
 
@@ -144,7 +144,7 @@ export default function Footer() {
 
           </div>
 
-        </div>
+        </div> */}
 
         {/* =====================================
             MAIN FOOTER
@@ -287,7 +287,7 @@ export default function Footer() {
                 </Link>
 
                 <Link
-                  href="/book-repair"
+                  href="/contact#callback"
                   className="contact-book-btn"
                 >
                   Book a Repair
@@ -383,8 +383,8 @@ export default function Footer() {
 
         .footer {
           width: 100%;
-          background: #f9fbfa;
-          color: #0b223d;
+          background: var(--surface-muted);
+          color: var(--text-primary);
           font-family: var(--font-inter), sans-serif;
         }
 
@@ -395,7 +395,7 @@ export default function Footer() {
         .footer-cta {
           position: relative;
           padding: 90px 5%;
-          background: #eaf3ff;
+          background: var(--surface-blue);
           overflow: hidden;
         }
 
@@ -431,11 +431,11 @@ export default function Footer() {
           line-height: 1.1;
           letter-spacing: -1.8px;
 
-          color: #0b223d;
+          color: var(--text-primary);
         }
 
         .footer-cta-content h2 em {
-          color: #0866e8;
+          color: var(--secondary);
           font-weight: 400;
         }
 
@@ -446,7 +446,7 @@ export default function Footer() {
           font-size: 15px;
           line-height: 1.8;
 
-          color: #64748b;
+          color: var(--text-secondary);
         }
 
         .footer-cta-container :global(.footer-cta-btn) {
@@ -460,7 +460,7 @@ export default function Footer() {
 
           border-radius: 50px;
 
-          background: #0866e8;
+          background: var(--secondary);
           color: #ffffff;
 
           font-size: 14px;
@@ -472,7 +472,7 @@ export default function Footer() {
         }
 
         .footer-cta-container :global(.footer-cta-btn:hover) {
-          background: #0b223d;
+          background: var(--primary);
           transform: translateY(-3px);
         }
 
@@ -482,7 +482,7 @@ export default function Footer() {
 
         .footer-main {
           padding: 70px 5% 0;
-          background: #f9fbfa;
+          background: var(--surface-muted);
         }
 
         .footer-container {
@@ -504,7 +504,7 @@ export default function Footer() {
           padding-bottom: 45px;
           margin-bottom: 55px;
 
-          border-bottom: 1px solid #e1e8e6;
+          border-bottom: 1px solid var(--border);
         }
 
         .footer-brand {
@@ -529,7 +529,7 @@ export default function Footer() {
           font-size: 13px;
           line-height: 1.8;
 
-          color: #64748b;
+          color: var(--text-secondary);
         }
 
         .footer-brand-tagline {
@@ -537,12 +537,12 @@ export default function Footer() {
           font-style: italic;
           font-size: 25px;
 
-          color: #0b223d;
+          color: var(--text-primary);
         }
 
         .footer-brand-tagline span {
           margin: 0 8px;
-          color: #0866e8;
+          color: var(--secondary);
         }
 
         /* =====================================
@@ -574,7 +574,7 @@ export default function Footer() {
           font-size: 14px;
           font-weight: 700;
 
-          color: #0b223d;
+          color: var(--text-primary);
         }
 
         .footer-column ul {
@@ -594,7 +594,7 @@ export default function Footer() {
           font-size: 14px;
           line-height: 1.5;
 
-          color: #526a69;
+          color: var(--text-secondary);
 
           text-decoration: none;
 
@@ -604,7 +604,7 @@ export default function Footer() {
         }
 
         .footer-column li :global(a:hover) {
-          color: #0866e8;
+          color: var(--secondary);
           transform: translateX(4px);
         }
 
@@ -620,7 +620,7 @@ export default function Footer() {
           font-size: 13px;
           line-height: 1.8;
 
-          color: #64748b;
+          color: var(--text-secondary);
         }
 
         .footer-contact :global(.contact-link) {
@@ -634,13 +634,13 @@ export default function Footer() {
           font-size: 14px;
           font-weight: 600;
 
-          color: #0b223d;
+          color: var(--text-primary);
 
           transition: color 0.3s ease;
         }
 
         .footer-contact :global(.contact-link:hover) {
-          color: #0866e8;
+          color: var(--secondary);
         }
 
         .footer-contact :global(.contact-link svg) {
@@ -658,10 +658,10 @@ export default function Footer() {
           margin-top: 10px;
           padding: 13px 22px;
 
-          border: 1px solid #0866e8;
+          border: 1px solid var(--secondary);
           border-radius: 50px;
 
-          color: #0866e8;
+          color: var(--secondary);
 
           font-size: 13px;
           font-weight: 600;
@@ -670,7 +670,7 @@ export default function Footer() {
         }
 
         .footer-contact :global(.contact-book-btn:hover) {
-          background: #0866e8;
+          background: var(--secondary);
           color: #ffffff;
         }
 
@@ -701,7 +701,7 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
 
-          color: #365956;
+          color: var(--text-secondary);
 
           font-size: 19px;
 
@@ -711,7 +711,7 @@ export default function Footer() {
         }
 
         .footer-socials :global(a:hover) {
-          color: #0866e8;
+          color: var(--secondary);
           transform: translateY(-3px);
         }
 
@@ -728,12 +728,12 @@ export default function Footer() {
           font-size: 13px;
           font-weight: 600;
 
-          color: #0b223d;
+          color: var(--text-primary);
         }
 
         .footer-status :global(svg) {
           font-size: 9px;
-          color: #0866e8;
+          color: var(--secondary);
         }
 
         /* =====================================
@@ -749,7 +749,7 @@ export default function Footer() {
 
           padding: 28px 0;
 
-          border-top: 1px solid #e1e8e6;
+          border-top: 1px solid var(--border);
         }
 
         .footer-bottom p {
@@ -757,7 +757,7 @@ export default function Footer() {
 
           font-size: 12px;
 
-          color: #64748b;
+          color: var(--text-secondary);
         }
 
         .footer-bottom-links {
@@ -777,13 +777,13 @@ export default function Footer() {
 
           font-size: 12px;
 
-          color: #526a69;
+          color: var(--text-secondary);
 
           transition: color 0.3s ease;
         }
 
         .footer-bottom-links :global(a:hover) {
-          color: #0866e8;
+          color: var(--secondary);
         }
 
         /* =====================================
@@ -857,7 +857,7 @@ export default function Footer() {
            SMALL MOBILE
         ===================================== */
 
-        @media (max-width: 480px) {
+        @media (max-width: 560px) {
           .footer-cta-content h2 {
             font-size: 38px;
           }
@@ -889,7 +889,7 @@ export default function Footer() {
         ===================================== */
 
         .footer :global(a:focus-visible) {
-          outline: 2px solid #0866e8;
+          outline: 2px solid var(--secondary);
           outline-offset: 4px;
         }
 

@@ -96,7 +96,7 @@ export default function ApplianceServices() {
   return (
     <section
       className={styles.section}
-      id="appliance-services"
+      id="services"
     >
       <div className={styles.container}>
 
@@ -132,7 +132,7 @@ export default function ApplianceServices() {
           </div>
 
           <Link
-            href="/book-repair"
+            href="/contact#callback"
             className={styles.bannerButton}
           >
             Book a Repair
@@ -146,9 +146,9 @@ export default function ApplianceServices() {
           {appliances.map((appliance) => (
             <Link
               key={appliance.service}
-              href={`/book-repair?service=${encodeURIComponent(
+              href={`/contact?service=${encodeURIComponent(
                 appliance.service
-              )}`}
+              )}#callback`}
               className={styles.applianceCard}
               aria-label={`Book ${appliance.name} repair`}
             >

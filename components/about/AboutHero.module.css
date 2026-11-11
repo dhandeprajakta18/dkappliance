@@ -1,0 +1,229 @@
+.hero {
+  padding: clamp(76px, 9vw, 112px) 0 42px;
+  background: linear-gradient(135deg, var(--background), #eef5ff);
+}
+
+.container {
+  width: min(1320px, 90%);
+  margin: auto;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.content h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.13;
+  font-weight: 500;
+  letter-spacing: -2px;
+  color: var(--primary);
+  margin: 0 0 30px;
+}
+
+.content h1 em {
+  color: var(--secondary);
+  font-weight: 400;
+}
+
+.content p {
+  max-width: 580px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--secondary);
+  color: white;
+  padding: 16px 25px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.primaryBtn:hover {
+  background: #0052c8;
+  transform: translateY(-3px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.secondaryBtn:hover {
+  color: var(--secondary);
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.trust span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.trust svg {
+  color: var(--secondary);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 550px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #dbeafe, #f8fbff);
+}
+
+.heroImage {
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.imageWrapper:hover .heroImage {
+  transform: scale(1.04);
+}
+
+.imageBadge {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.imageBadge > svg {
+  color: var(--secondary);
+  font-size: 25px;
+}
+
+.imageBadge div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.imageBadge strong {
+  font-size: 14px;
+  color: var(--primary);
+}
+
+.imageBadge span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.disclaimer {
+  text-align: center;
+  margin-top: 75px;
+  padding-top: 25px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .imageWrapper {
+    height: 480px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 65px 0 25px;
+  }
+
+  .content h1 {
+    font-size: 42px;
+    letter-spacing: -1px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+
+  .imageWrapper {
+    height: 380px;
+  }
+
+  .disclaimer {
+    margin-top: 45px;
+  }
+}
+
+@media (max-width: 440px) {
+  .actions > a {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .imageBadge {
+    left: 16px;
+    bottom: 16px;
+    padding: 12px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .content,
+  .imageWrapper {
+    animation: about-hero-settle 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .imageWrapper {
+    animation-delay: 100ms;
+  }
+}
+
+@keyframes about-hero-settle {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

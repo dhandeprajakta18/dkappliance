@@ -1,0 +1,910 @@
+.page {
+  background: #ffffff;
+  color: #0b223d;
+  overflow: hidden;
+}
+
+.container {
+  width: min(1320px, 90%);
+  margin: 0 auto;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+  padding: 110px 0;
+  background:
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(8, 102, 232, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #f8fbff 0%,
+      #eef5ff 100%
+    );
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.heroContent h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  font-weight: 500;
+  margin: 0 0 25px;
+}
+
+.heroContent h1 span {
+  color: #0866e8;
+  font-style: italic;
+}
+
+.heroContent > p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #63748a;
+  max-width: 560px;
+}
+
+.heroBenefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.heroBenefits span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.heroBenefits svg {
+  color: #0866e8;
+}
+
+/* CITY CARD */
+
+.cityCard {
+  padding: 40px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid #e1eaf5;
+  box-shadow: 0 25px 70px rgba(11, 34, 61, 0.09);
+}
+
+.cityCardIcon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaf3ff;
+  color: #0866e8;
+  border-radius: 15px;
+  font-size: 23px;
+  margin-bottom: 22px;
+}
+
+.cityCard h3 {
+  font-size: 23px;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.cityCard > p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #718096;
+  margin-bottom: 25px;
+}
+
+.selectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.selectWrapper select {
+  width: 100%;
+  appearance: none;
+  border: 1.5px solid #0866e8;
+  background: #f8fbff;
+  border-radius: 12px;
+  padding: 17px 45px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b223d;
+  outline: none;
+  cursor: pointer;
+}
+
+.locationIcon {
+  position: absolute;
+  left: 17px;
+  color: #0866e8;
+  pointer-events: none;
+}
+
+.selectArrow {
+  position: absolute;
+  right: 17px;
+  color: #0866e8;
+  pointer-events: none;
+}
+
+.cityNote {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  color: #728197;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.cityNote svg {
+  color: #0866e8;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   PRICING SECTION
+========================================= */
+
+.pricingSection {
+  padding: 110px 0;
+  background: #ffffff;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.sectionTag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0866e8;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.sectionHeading h2,
+.billingHeading h2,
+.faqIntro h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.sectionHeading h2 em,
+.billingHeading h2 em,
+.faqIntro h2 em {
+  color: #0866e8;
+  font-weight: 400;
+}
+
+.sectionHeading p,
+.billingHeading > p {
+  font-size: 15px;
+  color: #718096;
+  margin-top: 18px;
+  line-height: 1.8;
+}
+
+.pricingBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0f6ff;
+  padding: 18px 25px;
+  border-radius: 14px;
+  color: #0866e8;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.pricingBadge svg {
+  font-size: 26px;
+}
+
+/* CARDS */
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.pricingCard {
+  background: #f8fafd;
+  border: 1px solid #e3eaf3;
+  border-radius: 18px;
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  transition: all 0.3s ease;
+}
+
+.pricingCard:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  border-color: #bdd6ff;
+  box-shadow: 0 20px 45px rgba(8, 102, 232, 0.08);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.applianceIcon {
+  width: 48px;
+  height: 48px;
+  background: #e7f1ff;
+  color: #0866e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.cardTop h3 {
+  font-size: 17px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.serviceList {
+  flex: 1;
+}
+
+.serviceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 17px 0;
+  border-bottom: 1px solid #e1e7ef;
+  font-size: 13px;
+  font-weight: 600;
+  color: #263c54;
+  transition: color 0.2s ease;
+}
+
+.serviceRow:hover {
+  color: #0866e8;
+}
+
+.priceRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.priceRight small {
+  font-size: 11px;
+  color: #8190a1;
+}
+
+.priceRight strong {
+  font-size: 14px;
+  color: #0b223d;
+}
+
+.priceRight svg {
+  font-size: 11px;
+  color: #0866e8;
+  margin-left: 5px;
+}
+
+.cardFooter {
+  margin-top: 25px;
+}
+
+.cardBookLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0866e8;
+}
+
+.cardBookLink svg {
+  transition: transform 0.3s ease;
+}
+
+.cardBookLink:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.priceNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 35px;
+  padding: 22px 25px;
+  background: #edf5ff;
+  border-radius: 12px;
+  color: #526780;
+}
+
+.priceNotice svg {
+  color: #0866e8;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.priceNotice p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* =========================================
+   BILLING SECTION
+========================================= */
+
+.billingSection {
+  background: #f3f7fc;
+  padding: 110px 0;
+}
+
+.billingHeading {
+  margin-bottom: 70px;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 35px;
+  position: relative;
+}
+
+.stepsGrid::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  height: 2px;
+  background: #c6dbfa;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+}
+
+.stepNumber {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0866e8;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 35px;
+  box-shadow: 0 8px 20px rgba(8, 102, 232, 0.2);
+}
+
+.stepIcon {
+  color: #0866e8;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.step h3 {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.step p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #718096;
+}
+
+.warrantyNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background: #e5f0ff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  margin-top: 65px;
+  max-width: 900px;
+}
+
+.warrantyNotice svg {
+  color: #0866e8;
+  font-size: 25px;
+  flex-shrink: 0;
+}
+
+.warrantyNotice p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #526780;
+  margin: 0;
+}
+
+/* =========================================
+   FAQ SECTION
+========================================= */
+
+.faqSection {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.faqIntro > p {
+  color: #718096;
+  line-height: 1.9;
+  font-size: 15px;
+  margin-top: 22px;
+  max-width: 350px;
+}
+
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  color: #0866e8;
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 28px;
+}
+
+.contactButton svg {
+  transition: transform 0.3s ease;
+}
+
+.contactButton:hover svg {
+  transform: translateX(5px);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.faqItem {
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faqActive {
+  border-color: #bcd7ff;
+  background: #f8fbff;
+}
+
+.faqQuestion {
+  width: 100%;
+  padding: 23px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: #0b223d;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.faqToggle {
+  font-size: 24px;
+  font-weight: 400;
+  color: #0866e8;
+  flex-shrink: 0;
+}
+
+.faqAnswer {
+  padding: 0 25px 23px;
+}
+
+.faqAnswer p {
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.9;
+  margin: 0;
+}
+
+/* =========================================
+   FINAL CTA
+========================================= */
+
+.ctaSection {
+  padding: 40px 0 110px;
+  background: #ffffff;
+}
+
+.ctaBox {
+  background: linear-gradient(
+    135deg,
+    #0b223d,
+    #123d75
+  );
+  border-radius: 24px;
+  padding: 65px 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+}
+
+.ctaBox span {
+  color: #8dbdff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.ctaBox h2 {
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 18px 0;
+}
+
+.ctaBox p {
+  color: #b7c9df;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 470px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 19px 28px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #0866e8;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  background: #eaf3ff;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .heroGrid {
+    gap: 40px;
+  }
+
+  .pricingGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .faqGrid {
+    gap: 45px;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  .cityCard {
+    max-width: 600px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 50px;
+  }
+
+  .stepsGrid::before {
+    display: none;
+  }
+
+  .ctaBox {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  .hero {
+    padding: 65px 0;
+  }
+
+  .heroContent h1 {
+    font-size: 42px;
+    letter-spacing: -1px;
+  }
+
+  .heroContent > p {
+    font-size: 15px;
+  }
+
+  .heroBenefits {
+    gap: 15px;
+  }
+
+  .heroBenefits span {
+    font-size: 12px;
+  }
+
+  .cityCard {
+    padding: 27px 22px;
+  }
+
+  .pricingSection,
+  .billingSection,
+  .faqSection {
+    padding: 75px 0;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pricingBadge {
+    display: none;
+  }
+
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricingCard {
+    min-height: 300px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .stepNumber {
+    margin-bottom: 20px;
+  }
+
+  .warrantyNotice {
+    margin-top: 45px;
+    padding: 22px;
+  }
+
+  .faqGrid {
+    gap: 40px;
+  }
+
+  .faqQuestion {
+    padding: 20px;
+    font-size: 13px;
+  }
+
+  .ctaSection {
+    padding: 20px 0 75px;
+  }
+
+  .ctaBox {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 28px;
+  }
+
+  .ctaButton {
+    width: 100%;
+  }
+}
+
+/* Quiet visual rhythm shared with the service pages. */
+.page {
+  color: var(--text-primary);
+  background: var(--surface);
+}
+
+.hero {
+  padding: clamp(76px, 9vw, 112px) 0;
+  background:
+    radial-gradient(circle at 85% 30%, rgba(8, 102, 232, 0.1), transparent 40%),
+    linear-gradient(135deg, var(--background), #eef5ff);
+}
+
+.heroContent h1,
+.cityCard h3,
+.sectionHeading h2,
+.billingHeading h2,
+.faqIntro h2,
+.cardTop h3,
+.step h3,
+.faqQuestion {
+  color: var(--primary);
+}
+
+.heroContent h1 span,
+.heroBenefits svg,
+.cityCardIcon,
+.locationIcon,
+.selectArrow,
+.cityNote svg,
+.sectionHeading h2 em,
+.billingHeading h2 em,
+.faqIntro h2 em,
+.pricingBadge,
+.applianceIcon,
+.serviceRow:hover,
+.priceRight svg,
+.cardBookLink,
+.stepIcon,
+.warrantyNotice svg,
+.faqToggle,
+.contactButton {
+  color: var(--secondary);
+}
+
+.heroContent > p,
+.cityCard > p,
+.cityNote,
+.sectionHeading p,
+.billingHeading > p,
+.step p,
+.faqIntro > p,
+.faqAnswer p,
+.priceNotice,
+.warrantyNotice p {
+  color: var(--text-secondary);
+}
+
+.cityCard,
+.faqItem {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.pricingSection,
+.faqSection,
+.ctaSection {
+  background: var(--surface);
+}
+
+.billingSection {
+  background: var(--background);
+}
+
+.pricingCard {
+  background: var(--background);
+  border-color: var(--border);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+
+.pricingCard:hover {
+  transform: translateY(-3px);
+  background: var(--surface);
+  border-color: #bdd6ff;
+}
+
+.selectWrapper select:focus-visible {
+  outline: 3px solid rgba(8, 102, 232, 0.18);
+  outline-offset: 2px;
+}
+
+.ctaBox {
+  background: linear-gradient(135deg, var(--primary), #123d75);
+}
+
+.ctaButton {
+  color: var(--secondary);
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+
+@media (max-width: 440px) {
+  .priceNotice,
+  .warrantyNotice {
+    padding: 18px;
+  }
+
+  .serviceRow {
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .heroContent,
+  .cityCard {
+    animation: pricing-settle 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .cityCard {
+    animation-delay: 100ms;
+  }
+
+  .pricingCard {
+    animation: pricing-settle 480ms ease both;
+  }
+
+  .pricingCard:nth-child(2),
+  .pricingCard:nth-child(5) {
+    animation-delay: 60ms;
+  }
+
+  .pricingCard:nth-child(3),
+  .pricingCard:nth-child(6) {
+    animation-delay: 120ms;
+  }
+}
+
+@keyframes pricing-settle {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

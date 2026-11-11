@@ -1,0 +1,163 @@
+.section {
+  padding: 110px 0;
+  background: #f5f8fc;
+}
+
+.container {
+  width: min(1320px, 90%);
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 65px;
+}
+
+.header h2 {
+  margin: 0 0 15px;
+
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 500;
+
+  color: #0b223d;
+}
+
+.header h2 em {
+  color: #0866e8;
+  font-weight: 400;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* TIMELINE */
+
+.timeline {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 50px;
+}
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 29px;
+  left: 30px;
+  right: 30px;
+
+  height: 2px;
+
+  background: #bdd7fb;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+
+  margin-bottom: 30px;
+
+  background: #0866e8;
+  color: white;
+
+  border: 6px solid #f5f8fc;
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 1px #bdd7fb;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.step h3 {
+  margin: 0 0 12px;
+
+  color: #0b223d;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.step p {
+  max-width: 350px;
+
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .timeline::before {
+    top: 30px;
+    bottom: 30px;
+
+    left: 29px;
+    right: auto;
+
+    width: 2px;
+    height: auto;
+  }
+
+  .step {
+    padding-left: 85px;
+    min-height: 80px;
+  }
+
+  .number {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .step p {
+    max-width: 100%;
+  }
+}
+
+.section {
+  padding: clamp(76px, 8vw, 110px) 0;
+  background: var(--background);
+}
+
+.header h2,
+.step h3 {
+  color: var(--primary);
+}
+
+.header h2 em {
+  color: var(--secondary);
+}
+
+.header p,
+.step p {
+  color: var(--text-secondary);
+}
+
+.number {
+  background: var(--secondary);
+}

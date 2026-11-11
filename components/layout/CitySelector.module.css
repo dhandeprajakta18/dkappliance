@@ -1,0 +1,423 @@
+/* =========================================
+   WRAPPER
+========================================= */
+
+.wrapper {
+  position: relative;
+}
+
+/* =========================================
+   CITY BUTTON
+========================================= */
+
+.cityButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  min-height: 46px;
+
+  padding: 0 17px;
+
+  border: 1px solid var(--border);
+  border-radius: 30px;
+
+  background: var(--surface);
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.cityButton:hover,
+.cityButton.active {
+  border-color: var(--secondary);
+  background: var(--surface-blue);
+}
+
+.locationIcon {
+  color: var(--secondary);
+  font-size: 16px;
+}
+
+.chevron {
+  font-size: 11px;
+  transition: transform 0.25s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   BACKDROP
+========================================= */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  background: rgba(7, 31, 61, 0.24);
+
+  backdrop-filter: blur(1px);
+}
+
+/* =========================================
+   POPUP
+========================================= */
+
+.popup {
+  position: absolute;
+
+  top: calc(100% + 14px);
+  right: 0;
+
+  width: 435px;
+  max-width: calc(100vw - 30px);
+
+  max-height: min(580px, calc(100dvh - 110px));
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: 22px;
+
+  box-shadow:
+    var(--shadow-lg);
+
+  overflow: hidden;
+
+  z-index: 1001;
+
+  animation: popupOpen 0.25s ease;
+}
+
+@keyframes popupOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.popupHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 25px 22px 15px;
+}
+
+.popupHeader h3 {
+  margin: 0 0 12px;
+
+  color: var(--text-primary);
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.popupHeader p {
+  max-width: 330px;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.closeButton {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background: var(--surface-muted);
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin: 0 22px 22px;
+
+  padding: 0 15px;
+
+  height: 50px;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+
+  background: var(--surface);
+
+  transition: all 0.25s ease;
+}
+
+.searchBox:focus-within {
+  border-color: var(--secondary);
+
+  box-shadow:
+    var(--focus-ring);
+}
+
+.searchBox svg {
+  color: var(--text-muted);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.searchBox input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.searchBox input::placeholder {
+  color: var(--text-muted);
+}
+
+/* =========================================
+   SCROLL AREA
+========================================= */
+
+.scrollArea {
+  flex: 1;
+  min-height: 0;
+
+  padding: 0 22px 20px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.scrollArea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollArea::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 10px;
+}
+
+/* =========================================
+   CITY SECTIONS
+========================================= */
+
+.citySection {
+  margin-bottom: 25px;
+}
+
+.citySection h4 {
+  margin: 0 0 12px;
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================
+   CITY GRID
+========================================= */
+
+.cityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 9px;
+}
+
+/* =========================================
+   CITY OPTIONS
+========================================= */
+
+.cityOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  min-height: 49px;
+
+  padding: 12px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+
+  background: var(--surface);
+
+  color: var(--text-primary);
+
+  text-align: left;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.cityOption:hover {
+  border-color: var(--secondary);
+  background: var(--surface-blue);
+  color: var(--secondary);
+}
+
+.cityOption.selected {
+  border-color: var(--secondary);
+  background: var(--surface-blue);
+  color: var(--secondary);
+}
+
+.cityOption svg {
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+/* =========================================
+   NO RESULTS
+========================================= */
+
+.noResults {
+  padding: 45px 15px;
+
+  text-align: center;
+}
+
+.noResults svg {
+  margin-bottom: 15px;
+
+  color: var(--text-muted);
+  font-size: 28px;
+}
+
+.noResults h4 {
+  margin-bottom: 8px;
+
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.noResults p {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.popupFooter {
+  padding: 15px 22px;
+
+  border-top: 1px solid var(--border);
+
+  background: var(--surface-muted);
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .popup {
+    position: fixed;
+
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    max-height: 80dvh;
+
+    border-radius: 22px 22px 0 0;
+  }
+
+  .popupHeader {
+    padding: 22px 20px 15px;
+  }
+
+  .searchBox {
+    margin: 0 20px 20px;
+  }
+
+  .scrollArea {
+    padding: 0 20px 20px;
+  }
+
+  .cityButton {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popup {
+    animation: none;
+  }
+}

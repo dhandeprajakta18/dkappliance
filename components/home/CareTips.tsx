@@ -432,10 +432,10 @@ export default function CareTips() {
                     reduceMotion
                       ? { opacity: 0 }
                       : {
-                          x: direction > 0 ? 90 : -90,
-                          rotate: direction > 0 ? 8 : -8,
+                          x: direction > 0 ? 36 : -36,
+                          rotate: direction > 0 ? 2 : -2,
                           opacity: 0,
-                          scale: 0.94,
+                          scale: 0.985,
                         }
                   }
                   animate={{
@@ -448,14 +448,14 @@ export default function CareTips() {
                     reduceMotion
                       ? { opacity: 0 }
                       : {
-                          x: direction > 0 ? -90 : 90,
-                          rotate: direction > 0 ? -18 : 18,
+                          x: direction > 0 ? -36 : 36,
+                          rotate: direction > 0 ? -2 : 2,
                           opacity: 0,
-                          scale: 0.9,
+                          scale: 0.98,
                         }
                   }
                   transition={{
-                    duration: reduceMotion ? 0.1 : 0.65,
+                    duration: reduceMotion ? 0.1 : 0.42,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   drag={reduceMotion ? false : "x"}
@@ -466,7 +466,7 @@ export default function CareTips() {
                   dragElastic={0.7}
                   onDragEnd={handleDragEnd}
                   whileDrag={{
-                    scale: 1.025,
+                    scale: 1.01,
                     cursor: "grabbing",
                   }}
                 >

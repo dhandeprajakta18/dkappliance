@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: #f8fbff;
+  background: var(--background);
 }
 
 /* =========================================
@@ -26,7 +26,7 @@
     ),
     linear-gradient(
       110deg,
-      #ffffff 0%,
+      var(--surface) 0%,
       #f8fbff 52%,
       #eef6ff 100%
     );
@@ -105,7 +105,7 @@
 
   max-width: 710px;
 
-  animation: fadeUp 0.8s ease both;
+  animation: fadeUp 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* =========================================
@@ -115,7 +115,7 @@
 .heroTitle {
   margin: 0 0 28px;
 
-  color: #102c48;
+  color: var(--text-primary);
 
   font-family: var(--font-manrope), sans-serif;
 
@@ -128,18 +128,18 @@
   letter-spacing: -0.065em;
 }
 
-.cursiveText {
+.accentText {
   display: inline-block;
 
   margin-top: 4px;
 
-  color: #0866e8;
+  color: var(--secondary);
 
-  font-family: var(--font-cursive), cursive;
+  font-family: inherit;
 
-  font-size: 1.12em;
+  font-size: 0.92em;
 
-  font-weight: 400;
+  font-weight: 700;
 
   line-height: 1.1;
 
@@ -155,7 +155,7 @@
 
   margin: 0 0 34px;
 
-  color: #63788d;
+  color: var(--text-secondary);
 
   font-family: var(--font-inter), sans-serif;
 
@@ -202,7 +202,12 @@
 
   text-decoration: none;
 
-  transition: all 0.3s ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 /* PRIMARY BUTTON */
@@ -212,11 +217,11 @@
 
   background: linear-gradient(
     135deg,
-    #1680ff,
-    #0866e8
+    #1677ed,
+    var(--secondary)
   );
 
-  border: 1px solid #0866e8;
+  border: 1px solid var(--secondary);
 
   box-shadow:
     0 12px 25px rgba(8, 102, 232, 0.22);
@@ -225,7 +230,7 @@
 .primaryButton:hover {
   background: #0758c8;
 
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 
   box-shadow:
     0 17px 30px rgba(8, 102, 232, 0.3);
@@ -234,7 +239,7 @@
 /* SECONDARY BUTTON */
 
 .secondaryButton {
-  color: #173c5f;
+  color: var(--primary);
 
   background: rgba(255, 255, 255, 0.7);
 
@@ -242,13 +247,13 @@
 }
 
 .secondaryButton:hover {
-  color: #0866e8;
+  color: var(--secondary);
 
-  border-color: #0866e8;
+  border-color: var(--secondary);
 
   background: #ffffff;
 
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .primaryButton svg,
@@ -294,7 +299,7 @@
 .trustIcon {
   display: inline-flex;
 
-  color: #0866e8;
+  color: var(--secondary);
 
   font-size: 14px;
 }
@@ -370,7 +375,7 @@
   box-shadow:
     0 30px 65px rgba(17, 60, 102, 0.17);
 
-  animation: imageReveal 0.9s ease both;
+  animation: imageReveal 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .heroImage {
@@ -403,50 +408,6 @@
   pointer-events: none;
 }
 
-/* IMAGE LABEL */
-
-.imageLabel {
-  position: absolute;
-
-  z-index: 2;
-
-  bottom: 28px;
-  left: 28px;
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 12px 16px;
-
-  border-radius: 50px;
-
-  color: #ffffff;
-
-  background: rgba(8, 30, 54, 0.6);
-
-  backdrop-filter: blur(12px);
-
-  font-size: 10px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.1em;
-}
-
-.labelDot {
-  width: 8px;
-  height: 8px;
-
-  border-radius: 50%;
-
-  background: #61d6a3;
-
-  box-shadow:
-    0 0 0 4px rgba(97, 214, 163, 0.15);
-}
-
 /* =========================================
    FLOATING CARD
 ========================================= */
@@ -470,7 +431,7 @@
   box-shadow:
     0 22px 55px rgba(16, 51, 85, 0.17);
 
-  animation: floatingCardIn 1s ease both;
+  animation: floatingCardIn 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .floatingCardTop {
@@ -493,7 +454,7 @@
 
   border-radius: 13px;
 
-  color: #0866e8;
+  color: var(--secondary);
 
   background: #e8f2ff;
 
@@ -556,22 +517,6 @@
   font-size: 12px;
 }
 
-.floatingFooter {
-  display: block;
-
-  padding-top: 12px;
-
-  border-top: 1px solid #edf1f5;
-
-  color: #8090a0;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
-}
-
 /* =========================================
    IMAGE BADGE
 ========================================= */
@@ -599,7 +544,7 @@
   box-shadow:
     0 15px 35px rgba(16, 51, 85, 0.13);
 
-  color: #0866e8;
+  color: var(--secondary);
 }
 
 .imageBadge svg {
@@ -692,7 +637,7 @@
 }
 
 .selectorIntro h2 span {
-  color: #0866e8;
+  color: var(--secondary);
 }
 
 .selectorIntro p {
@@ -786,7 +731,7 @@
 }
 
 .applianceCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 
   border-color: #9bc5ff;
 
@@ -799,7 +744,7 @@
 /* SELECTED CARD */
 
 .applianceCard.selected {
-  border: 1.5px solid #0866e8;
+  border: 1.5px solid var(--secondary);
 
   background: #edf5ff;
 
@@ -820,22 +765,25 @@
 
   border-radius: 50%;
 
-  color: #0866e8;
+  color: var(--secondary);
 
   background: #e6f1ff;
 
   font-size: 24px;
 
-  transition: all 0.3s ease;
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
 }
 
 .applianceCard:hover .applianceIcon,
 .applianceCard.selected .applianceIcon {
   color: #ffffff;
 
-  background: #0866e8;
+  background: var(--secondary);
 
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 
 /* APPLIANCE NAME */
@@ -874,7 +822,7 @@
 
   color: #ffffff;
 
-  background: #0866e8;
+  background: var(--secondary);
 
   font-size: 9px;
 }
@@ -932,7 +880,7 @@
 
   color: #ffffff;
 
-  background: #0866e8;
+  background: var(--secondary);
 
   font-size: 11px;
 
@@ -942,7 +890,10 @@
 
   white-space: nowrap;
 
-  transition: all 0.3s ease;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .continueButton:hover {
@@ -1116,8 +1067,8 @@
     letter-spacing: -0.06em;
   }
 
-  .cursiveText {
-    font-size: 1.08em;
+  .accentText {
+    font-size: 0.9em;
   }
 
   /* DESCRIPTION */
@@ -1185,15 +1136,6 @@
     border-radius: 22px;
   }
 
-  .imageLabel {
-    bottom: 20px;
-    left: 18px;
-
-    padding: 10px 12px;
-
-    font-size: 8px;
-  }
-
   /* FLOATING CARD */
 
   .floatingCard {
@@ -1224,10 +1166,6 @@
 
   .floatingStars {
     font-size: 10px;
-  }
-
-  .floatingFooter {
-    font-size: 8px;
   }
 
   /* IMAGE BADGE */
@@ -1352,6 +1290,21 @@
    EXTRA SMALL MOBILE
 ========================================= */
 
+@media (max-width: 440px) {
+  .applianceGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .applianceCard {
+    min-height: 118px;
+  }
+
+  .applianceName {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 380px) {
   .heroTitle {
     font-size: 37px;
@@ -1397,7 +1350,7 @@
 .primaryButton:focus-visible,
 .secondaryButton:focus-visible,
 .continueButton:focus-visible {
-  outline: 3px solid #0866e8;
+  outline: 3px solid var(--secondary);
 
   outline-offset: 4px;
 }
@@ -1410,7 +1363,7 @@
   from {
     opacity: 0;
 
-    transform: translateY(25px);
+    transform: translateY(14px);
   }
 
   to {
@@ -1424,7 +1377,7 @@
   from {
     opacity: 0;
 
-    transform: translateX(35px) scale(0.97);
+    transform: translateX(18px) scale(0.985);
   }
 
   to {
@@ -1438,7 +1391,7 @@
   from {
     opacity: 0;
 
-    transform: translateY(25px);
+    transform: translateY(14px);
   }
 
   to {

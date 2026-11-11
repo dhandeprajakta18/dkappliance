@@ -1,0 +1,133 @@
+.section {
+  padding: clamp(76px, 8vw, 110px) 0;
+  background: var(--background);
+  scroll-margin-top: 100px;
+}
+
+.container {
+  width: min(1320px, 90%);
+  margin: auto;
+}
+
+.heading {
+  margin-bottom: 55px;
+}
+
+.tag {
+  display: inline-block;
+  color: #0866e8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  color: #0b223d;
+  margin: 0;
+}
+
+.heading h2 em {
+  color: #0866e8;
+  font-weight: 400;
+}
+
+.heading p {
+  max-width: 650px;
+  margin-top: 20px;
+  color: #63748a;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.group {
+  margin-top: 50px;
+}
+
+.groupLabel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.groupLabel strong {
+  color: var(--secondary);
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.groupLabel span {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 15px rgba(11, 34, 61, 0.04);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.card:hover {
+  border-color: var(--secondary);
+  transform: translateY(-3px);
+}
+
+.year {
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.card h3 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 13px 0;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 27px;
+  }
+
+  .heading h2 {
+    font-size: 37px;
+  }
+}

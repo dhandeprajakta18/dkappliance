@@ -4,7 +4,7 @@
 
 .trustSection {
   width: 100%;
-  background: #ffffff;
+  background: var(--surface);
 }
 
 /* =========================================
@@ -16,7 +16,7 @@
 
   padding: 20px 5%;
 
-  background: #f7faff;
+  background: #f5f9ff;
 
   text-align: center;
 
@@ -26,7 +26,7 @@
 .disclaimer p {
   margin: 0;
 
-  color: #344b62;
+  color: var(--text-secondary);
 
   font-family: var(--font-inter), sans-serif;
 
@@ -36,7 +36,7 @@
 }
 
 .disclaimer strong {
-  color: #0b223d;
+  color: var(--text-primary);
 
   font-weight: 700;
 
@@ -61,8 +61,8 @@
   background: linear-gradient(
     110deg,
     #071c32 0%,
-    #0b2947 50%,
-    #0b223d 100%
+    var(--primary) 52%,
+    #102e50 100%
   );
 }
 
@@ -221,7 +221,7 @@
 
   margin-top: 4px;
 
-  color: #38bdf8;
+  color: #74b4ff;
 
   font-size: 21px;
 }
@@ -231,7 +231,7 @@
 
   color: #ffffff;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading), sans-serif;
 
   font-size: clamp(20px, 1.7vw, 27px);
 
@@ -267,11 +267,11 @@
 ========================================= */
 
 .statItem {
-  transition: transform 0.3s ease;
+  transition: transform 180ms ease;
 }
 
 .statItem:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
 .statItem:hover .statIcon {

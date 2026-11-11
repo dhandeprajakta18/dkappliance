@@ -68,9 +68,7 @@ const appliances = [
 export default function Hero() {
   const [selectedService, setSelectedService] = useState("");
 
-  const bookingUrl = selectedService
-    ? `/book-repair?service=${encodeURIComponent(selectedService)}`
-    : "/book-repair";
+  const bookingUrl = "/contact#callback";
 
   return (
     <div className={styles.heroWrapper}>
@@ -95,7 +93,7 @@ export default function Hero() {
               Our Expertise.
               <br />
 
-              <span className={styles.cursiveText}>
+              <span className={styles.accentText}>
                 Exceptional Care.
               </span>
             </h1>
@@ -114,7 +112,7 @@ export default function Hero() {
             <div className={styles.heroButtons}>
 
               <Link
-                href="/book-repair"
+                href="/contact#callback"
                 className={styles.primaryButton}
               >
                 Book a Repair
@@ -123,7 +121,7 @@ export default function Hero() {
               </Link>
 
               <Link
-                href="/services"
+                href="/#services"
                 className={styles.secondaryButton}
               >
                 Explore Services
@@ -200,14 +198,6 @@ export default function Hero() {
 
               <div className={styles.imageOverlay} />
 
-              {/* IMAGE LABEL */}
-
-              <div className={styles.imageLabel}>
-                <span className={styles.labelDot} />
-
-                PROFESSIONAL APPLIANCE CARE
-              </div>
-
             </div>
 
             {/* FLOATING SERVICE CARD */}
@@ -243,10 +233,6 @@ export default function Hero() {
                   <FaStar key={star} />
                 ))}
               </div>
-
-              <span className={styles.floatingFooter}>
-                DK APPLIANCE CARE
-              </span>
 
             </div>
 

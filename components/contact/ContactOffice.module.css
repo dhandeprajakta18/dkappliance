@@ -1,0 +1,232 @@
+.section {
+  padding: 110px 0;
+  background: #ffffff;
+}
+
+.container {
+  width: min(1320px, 90%);
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 90px;
+}
+
+.tag {
+  display: inline-block;
+  color: #0866e8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.content h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #0b223d;
+  margin: 0 0 20px;
+}
+
+.content h2 em {
+  color: #0866e8;
+  font-weight: 400;
+}
+
+.description {
+  max-width: 550px;
+  color: #63748a;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 35px;
+}
+
+.content h3 {
+  color: #0b223d;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.detail svg {
+  color: #0866e8;
+  font-size: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.detail p,
+.detail a {
+  color: #526780;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.detail a:hover {
+  color: #0866e8;
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #0866e8;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 35px;
+}
+
+.mapLink:hover {
+  text-decoration: underline;
+}
+
+.supportCard {
+  padding: 45px;
+  background: #f8fbff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+}
+
+.supportIcon {
+  width: 58px;
+  height: 58px;
+  border-radius: 15px;
+  background: #e4efff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0866e8;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.supportCard h3 {
+  color: #0b223d;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.supportCard > p {
+  color: #63748a;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.supportDivider {
+  height: 1px;
+  background: #dce6f2;
+  margin: 30px 0;
+}
+
+.supportItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 23px;
+}
+
+.supportItem strong {
+  color: #0b223d;
+  font-size: 13px;
+}
+
+.supportItem a,
+.supportItem span {
+  color: #526780;
+  font-size: 14px;
+}
+
+.supportItem a:hover {
+  color: #0866e8;
+}
+
+.supportNote {
+  border-top: 1px solid #dce6f2;
+  padding-top: 25px;
+  margin-top: 25px;
+  font-size: 12px !important;
+  line-height: 1.9;
+}
+
+.supportAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 700;
+  transition: gap 180ms ease, color 180ms ease;
+}
+
+.supportAction:hover {
+  gap: 13px;
+  color: var(--secondary-strong);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .supportCard {
+    padding: 30px;
+  }
+}
+
+.section {
+  padding: clamp(76px, 8vw, 110px) 0;
+  background: var(--surface);
+}
+
+.content h2,
+.content h3,
+.supportCard h3,
+.supportItem strong {
+  color: var(--primary);
+}
+
+.content h2 em,
+.detail svg,
+.mapLink,
+.supportIcon,
+.detail a:hover,
+.supportItem a:hover {
+  color: var(--secondary);
+}
+
+.description,
+.detail p,
+.detail a,
+.supportCard > p,
+.supportItem a,
+.supportItem span {
+  color: var(--text-secondary);
+}
+
+.supportCard {
+  background: var(--background);
+  border-color: var(--border);
+}

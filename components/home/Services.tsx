@@ -105,7 +105,7 @@ export default function Services() {
               services to keep everything running smoothly.
             </p>
 
-            <Link href="/services" className={styles.viewAll}>
+            <Link href="/#services" className={styles.viewAll}>
               Explore All Services
 
               <span className={styles.viewAllIcon}>
@@ -167,9 +167,7 @@ export default function Services() {
                   </p>
 
                   <Link
-                    href={`/book-repair?service=${encodeURIComponent(
-                      service.service
-                    )}`}
+                    href="/contact#callback"
                     className={styles.cardLink}
                   >
                     <span>Book This Service</span>
@@ -222,7 +220,7 @@ export default function Services() {
           </div>
 
           <Link
-            href="/book-repair"
+            href="/contact#callback"
             className={styles.bannerButton}
           >
             Book a Repair

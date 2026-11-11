@@ -91,10 +91,7 @@
 .heading {
   margin: 0;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-heading), sans-serif;
 
   font-size: clamp(38px, 3.6vw, 55px);
 
@@ -229,9 +226,9 @@
   transform: scale(1.05);
 
   transition:
-    opacity 0.9s
+    opacity 0.45s
       cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1.2s
+    transform 0.6s
       cubic-bezier(0.22, 1, 0.36, 1);
 
   will-change:
@@ -402,9 +399,9 @@
 }
 
 .pauseButton:hover {
-  background: #0866e8;
+  background: var(--secondary);
 
-  transform: scale(1.08);
+  transform: scale(1.03);
 }
 
 /* =========================================
@@ -493,7 +490,7 @@
 
   background: linear-gradient(
     180deg,
-    #0866e8 0%,
+    var(--secondary) 0%,
     #1556b8 55%,
     #0b223d 100%
   );
@@ -578,10 +575,7 @@
   border:
     1.5px solid #d3dce5;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-heading), sans-serif;
 
   font-size: 26px;
 
@@ -590,12 +584,12 @@
   z-index: 2;
 
   transition:
-    background-color 0.6s ease,
-    color 0.6s ease,
-    border-color 0.6s ease,
-    transform 0.6s
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s
       cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.6s ease;
+    box-shadow 0.35s ease;
 }
 
 /* =========================================
@@ -621,7 +615,7 @@
 
   color: #ffffff;
 
-  transform: scale(1.055);
+  transform: scale(1.03);
 
   box-shadow:
     0 0 0 6px
@@ -631,7 +625,7 @@
 }
 
 /* =========================================
-   ORANGE ACTIVE DOT
+   ACTIVE STEP DOT
 ========================================= */
 
 .activeIndicator {
@@ -647,20 +641,20 @@
 
   border-radius: 50%;
 
-  background: #ff6b35;
+  background: var(--secondary);
 
   border: 3px solid #ffffff;
 
   box-shadow:
     0 0 0 4px
-      rgba(255, 107, 53, 0.18);
+      rgba(8, 102, 232, 0.18);
 
   transform: translateX(-50%);
 
   z-index: 3;
 
   animation:
-    indicatorAppear 0.5s ease both;
+    indicatorAppear 240ms ease both;
 }
 
 @keyframes indicatorAppear {
@@ -691,8 +685,8 @@
   transform: translateY(8px);
 
   transition:
-    opacity 0.65s ease,
-    transform 0.65s ease;
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .activeStep .stepContent,
@@ -837,7 +831,7 @@
 }
 
 .cardTop svg {
-  color: #ff6b35;
+  color: #74b4ff;
 
   font-size: 20px;
 }
@@ -879,10 +873,7 @@
 .cardGrid h4 {
   margin: 0;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-heading), sans-serif;
 
   font-size:
     clamp(22px, 2vw, 29px);
@@ -945,10 +936,7 @@
 
   max-width: 500px;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-heading), sans-serif;
 
   font-size: 23px;
 
@@ -966,7 +954,7 @@
 
   margin-top: 18px;
 
-  background: #ff6b35;
+  background: var(--secondary);
 }
 
 /* =========================================
@@ -981,9 +969,9 @@
   opacity: 0;
 
   transition:
-    grid-template-rows 0.65s
+    grid-template-rows 0.35s
       cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.5s ease;
+    opacity 0.25s ease;
 }
 
 .expandedActive {

@@ -1,70 +1,71 @@
 @import "tailwindcss";
 
-/* ========================================
-   BRAND COLORS
-======================================== */
+/*
+  DK Appliance Care design foundation
+  The palette follows the navy and royal-blue brand mark, with cool neutrals
+  reserved for supporting surfaces so important actions stay easy to find.
+*/
 
 :root {
-  --primary: #0b223d;
+  --primary: #071f3d;
+  --primary-strong: #04162c;
   --secondary: #0866e8;
-  --accent: #38bdf8;
+  --secondary-strong: #0054c7;
+  --accent: #60a5fa;
 
-  --background: #fafbfc;
+  --background: #f6f9fc;
   --surface: #ffffff;
+  --surface-muted: #eef4fa;
+  --surface-blue: #e9f2ff;
 
-  --text-primary: #14263d;
-  --text-secondary: #64748b;
+  --text-primary: #0b223d;
+  --text-secondary: #526780;
+  --text-muted: #718096;
+  --border: #dce5ef;
+  --border-strong: #c6d5e3;
 
-  --border: #e2e8f0;
+  --shadow-sm: 0 8px 24px rgba(7, 31, 61, 0.06);
+  --shadow-md: 0 18px 45px rgba(7, 31, 61, 0.1);
+  --shadow-lg: 0 28px 70px rgba(7, 31, 61, 0.14);
+  --focus-ring: 0 0 0 4px rgba(8, 102, 232, 0.16);
 
-  /* Typography */
+  --content-width: 1320px;
+  --page-gutter: clamp(20px, 5vw, 76px);
+  --section-space: clamp(72px, 9vw, 128px);
+
   --font-heading: var(--font-manrope);
   --font-body: var(--font-inter);
   --font-script: var(--font-cursive);
 }
 
-/* ========================================
-   TAILWIND THEME
-======================================== */
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--text-primary);
-
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
-
   --font-sans: var(--font-inter);
 }
-
-/* ========================================
-   GLOBAL RESET
-======================================== */
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
   max-width: 100%;
-  overflow-x: hidden;
   overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
-  margin: 0;
+  min-width: 320px;
   min-height: 100vh;
-  max-width: 100%;
-  overflow-x: hidden;
+  margin: 0;
   overflow-x: clip;
-
   background: var(--background);
   color: var(--text-primary);
-
   font-family: var(--font-body), Arial, sans-serif;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -74,33 +75,22 @@ main {
   min-width: 0;
 }
 
-/* ========================================
-   TYPOGRAPHY
-======================================== */
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  margin-top: 0;
+  color: var(--text-primary);
   font-family: var(--font-heading), Arial, sans-serif;
+  text-wrap: balance;
 }
 
 p {
+  text-wrap: pretty;
   line-height: 1.7;
 }
-
-/* Optional cursive utility */
-
-.font-cursive {
-  font-family: var(--font-script), cursive;
-  font-weight: 400;
-}
-
-/* ========================================
-   BUTTONS & INPUTS
-======================================== */
 
 button,
 input,
@@ -113,41 +103,45 @@ button {
   cursor: pointer;
 }
 
-/* ========================================
-   LINKS
-======================================== */
-
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* ========================================
-   IMAGES
-======================================== */
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
+img,
 video {
   display: block;
   max-width: 100%;
 }
 
-/* ========================================
-   ACCESSIBILITY
-======================================== */
+::selection {
+  background: #cfe2ff;
+  color: var(--primary-strong);
+}
 
 :focus-visible {
   outline: 2px solid var(--secondary);
   outline-offset: 3px;
 }
 
-::selection {
-  background: #dbeafe;
-  color: #0b223d;
+.font-cursive {
+  font-family: var(--font-script), cursive;
+  font-weight: 400;
+}
+
+.site-container {
+  width: min(var(--content-width), calc(100% - (var(--page-gutter) * 2)));
+  margin-inline: auto;
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 82px;
+  }
+
+  :root {
+    --page-gutter: 20px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

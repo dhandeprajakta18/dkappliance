@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   padding: 110px 5% 120px;
-  background: #ffffff;
+  background: var(--surface);
   overflow: hidden;
 }
 
@@ -34,8 +34,8 @@
 
 .title {
   margin: 0 0 15px;
-  color: #0b223d;
-  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text-primary);
+  font-family: var(--font-heading), sans-serif;
   font-size: clamp(36px, 4vw, 58px);
   font-weight: 500;
   line-height: 1.15;
@@ -43,18 +43,18 @@
 }
 
 .title span {
-  color: #0866e8;
-  font-family: var(--font-cursive), Georgia, serif;
-  font-size: 1.12em;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.025em;
+  color: var(--secondary);
+  font-family: inherit;
+  font-size: 0.96em;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: inherit;
 }
 
 .description {
   max-width: 650px;
   margin: 0;
-  color: #697c8e;
+  color: var(--text-secondary);
   font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.8;
@@ -129,7 +129,7 @@
 }
 
 .videoCard:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   box-shadow: 0 24px 45px rgba(13, 44, 76, 0.16);
 }
 
@@ -147,7 +147,7 @@
 }
 
 .videoCard:hover .video {
-  transform: scale(1.055);
+  transform: scale(1.025);
 }
 
 /* =========================================
@@ -230,8 +230,8 @@
 }
 
 .videoCard:hover .expandIcon {
-  background: #0866e8;
-  transform: scale(1.08);
+  background: var(--secondary);
+  transform: scale(1.03);
 }
 
 /* =========================================

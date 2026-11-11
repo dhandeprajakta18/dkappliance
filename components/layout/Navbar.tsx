@@ -1,140 +1,266 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import CitySelector from "./CitySelector";
+
 import { FaArrowRight, FaBars, FaXmark } from "react-icons/fa6";
+
+/* =========================================
+   CONFIGURATION
+========================================= */
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
+  { name: "Services", href: "/#services" },
   { name: "Pricing", href: "/pricing" },
-  { name: "About Us", href: "/about" },
-  { name: "Contact Us", href: "/contact" },
-  { name: "My Bookings", href: "/my-bookings" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+  { name: "Join Us", href: "/join-us" },
 ];
 
+/* =========================================
+   NAVBAR COMPONENT
+========================================= */
+
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  /* =========================================
+     CLOSE MOBILE MENU ON ESCAPE
+  ========================================= */
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
+  /* =========================================
+     ACTIVE LINK
+  ========================================= */
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    if (href.includes("#")) {
+      return false;
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <>
       <header className="navbar">
         <div className="navbar-container">
 
-          {/* LOGO */}
+          {/* =====================================
+              LOGO
+          ===================================== */}
+
           <Link
             href="/"
             className="navbar-logo"
+            aria-label="DK Appliance Care Home"
             onClick={() => setMenuOpen(false)}
           >
             <Image
               src="/images/logo.png"
               alt="DK Appliance Care"
-              width={170}
-              height={70}
+              width={165}
+              height={65}
               priority
               className="logo-image"
             />
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
-          <nav className="desktop-nav" aria-label="Main navigation">
+          {/* =====================================
+              DESKTOP NAVIGATION
+          ===================================== */}
+
+          <nav
+            className="desktop-nav"
+            aria-label="Main navigation"
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={`nav-link ${
-                  pathname === link.href ? "active" : ""
+                  isActive(link.href) ? "active" : ""
                 }`}
+                aria-current={
+                  isActive(link.href) ? "page" : undefined
+                }
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
-          {/* BOOKING BUTTON */}
+          {/* =====================================
+              RIGHT ACTIONS
+          ===================================== */}
+
           <div className="navbar-actions">
-            <Link href="/book-repair" className="book-btn">
-              Book a Service
-              <FaArrowRight aria-hidden="true" />
+
+            {/* CITY SELECTOR */}
+
+            <div className="desktop-city">
+              <CitySelector />
+            </div>
+
+            {/* BOOK REPAIR */}
+
+            <Link
+              href="/contact#callback"
+              className="book-btn"
+            >
+              Book a Repair
+              <FaArrowRight className="book-arrow" />
             </Link>
 
-            {/* MOBILE MENU BUTTON */}
+            {/* MOBILE TOGGLE */}
+
             <button
               type="button"
               className="menu-toggle"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMenuOpen((isOpen) => !isOpen)}
+              aria-label={
+                menuOpen ? "Close menu" : "Open menu"
+              }
               aria-expanded={menuOpen}
               aria-controls="mobile-navigation"
             >
               {menuOpen ? (
-                <FaXmark aria-hidden="true" />
+                <FaXmark />
               ) : (
-                <FaBars aria-hidden="true" />
+                <FaBars />
               )}
             </button>
           </div>
         </div>
 
-        {/* MOBILE NAVIGATION */}
+        {/* =====================================
+            MOBILE NAVIGATION
+        ===================================== */}
+
         <nav
           id="mobile-navigation"
-          className={`mobile-nav ${menuOpen ? "show" : ""}`}
+          className={`mobile-nav ${
+            menuOpen ? "show" : ""
+          }`}
           aria-label="Mobile navigation"
           inert={!menuOpen}
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className={`mobile-link ${
-                pathname === link.href ? "active" : ""
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+          <div className="mobile-nav-inner">
 
-          <Link
-            href="/book-repair"
-            className="mobile-book-btn"
-            onClick={() => setMenuOpen(false)}
-          >
-            Book a Service <FaArrowRight aria-hidden="true" />
-          </Link>
+            {/* MOBILE LINKS */}
+
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className={`mobile-link ${
+                  isActive(link.href) ? "active" : ""
+                }`}
+              >
+                <span>{link.name}</span>
+
+                <FaArrowRight />
+              </Link>
+            ))}
+
+            {/* MOBILE CITY SELECTOR */}
+
+            <div className="mobile-city">
+              <CitySelector />
+            </div>
+
+            {/* MOBILE BOOK BUTTON */}
+
+            <Link
+              href="/contact#callback"
+              className="mobile-book-btn"
+              onClick={() => setMenuOpen(false)}
+            >
+              Book a Repair
+              <FaArrowRight />
+            </Link>
+          </div>
         </nav>
       </header>
 
+      {/* =========================================
+          STYLES
+      ========================================= */}
+
       <style jsx>{`
+
+        /* =====================================
+           NAVBAR
+        ===================================== */
+
         .navbar {
           position: sticky;
           top: 0;
+          left: 0;
+
           width: 100%;
           z-index: 1000;
-          background: #ffffff;
-          border-bottom: 1px solid #e2e8f0;
-          box-shadow: 0 4px 20px rgba(11, 34, 61, 0.04);
+
+          background: rgba(255, 255, 255, 0.94);
+          backdrop-filter: blur(14px);
+
+          border-bottom: 1px solid var(--border);
+
+          box-shadow: 0 4px 20px rgba(7, 31, 61, 0.035);
         }
 
         .navbar-container {
-          max-width: 1440px;
-          margin: auto;
-          padding: 12px 5%;
-          min-height: 90px;
-          min-width: 0;
+          width: min(1440px, calc(100% - (var(--page-gutter) * 2)));
+          margin: 0 auto;
+
+          min-height: 88px;
 
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 30px;
+
+          gap: 35px;
         }
 
-        /* LOGO */
+        /* =====================================
+           LOGO
+        ===================================== */
 
         .navbar-logo {
           display: flex;
@@ -143,43 +269,69 @@ export default function Navbar() {
         }
 
         .navbar-logo :global(.logo-image) {
-          width: 170px;
+          width: 155px;
           height: auto;
           object-fit: contain;
         }
 
-        /* DESKTOP NAV */
+        /* =====================================
+           DESKTOP NAVIGATION
+        ===================================== */
 
         .desktop-nav {
           display: flex;
           align-items: center;
-          gap: 26px;
+          justify-content: center;
+
+          gap: 31px;
+
+          flex: 1;
           min-width: 0;
         }
 
         .desktop-nav :global(.nav-link) {
-          font-size: 14px;
-          font-weight: 600;
-          color: #14263d;
-          white-space: nowrap;
           position: relative;
-          transition: color 0.3s ease;
+
+          display: inline-flex;
+          align-items: center;
+
+          height: 88px;
+
+          font-size: 15px;
+          font-weight: 500;
+
+          color: var(--text-secondary);
+
+          white-space: nowrap;
+
+          transition: color 0.25s ease;
         }
 
-        .desktop-nav :global(.nav-link:hover),
-        .desktop-nav :global(.nav-link.active) {
-          color: #0866e8;
+        .desktop-nav :global(.nav-link:hover) {
+          color: var(--secondary);
         }
+
+        .desktop-nav :global(.nav-link.active) {
+          color: var(--text-primary);
+          font-weight: 700;
+        }
+
+        /* ACTIVE UNDERLINE */
 
         .desktop-nav :global(.nav-link::after) {
           content: "";
+
           position: absolute;
-          bottom: -8px;
+
           left: 0;
+          bottom: 15px;
+
           width: 0;
           height: 2px;
-          background: #0866e8;
-          transition: width 0.3s ease;
+
+          background: var(--secondary);
+
+          transition: width 0.25s ease;
         }
 
         .desktop-nav :global(.nav-link:hover::after),
@@ -187,47 +339,75 @@ export default function Navbar() {
           width: 100%;
         }
 
-        /* ACTIONS */
+        /* =====================================
+           RIGHT ACTIONS
+        ===================================== */
 
         .navbar-actions {
           display: flex;
           align-items: center;
-          gap: 18px;
+
+          gap: 14px;
+
+          flex-shrink: 0;
         }
 
-        .navbar-actions :global(.book-btn) {
-          background: linear-gradient(
-            135deg,
-            #0866e8,
-            #0052c8
-          );
+        /* =====================================
+           BOOK REPAIR BUTTON
+        ===================================== */
 
-          color: white;
-          padding: 14px 22px;
-          border-radius: 10px;
+        .navbar-actions :global(.book-btn) {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          gap: 12px;
+
+          padding: 15px 24px;
+
+          min-height: 48px;
+
+          background: var(--secondary);
+          color: #ffffff;
+
+          border-radius: 999px;
 
           font-size: 14px;
-          font-weight: 600;
-
-          display: flex;
-          align-items: center;
-          gap: 12px;
+          font-weight: 700;
 
           white-space: nowrap;
 
-          box-shadow: 0 6px 18px rgba(8, 102, 232, 0.18);
-          transition: all 0.3s ease;
+          box-shadow:
+            0 8px 18px rgba(8, 102, 232, 0.16);
+
+          transition: all 0.25s ease;
         }
 
         .navbar-actions :global(.book-btn:hover) {
+          background: var(--secondary-strong);
+
           transform: translateY(-2px);
-          box-shadow: 0 10px 24px rgba(8, 102, 232, 0.28);
+
+          box-shadow:
+            0 8px 22px rgba(8, 102, 232, 0.22);
         }
 
-        /* MOBILE TOGGLE */
+        .navbar-actions :global(.book-arrow) {
+          font-size: 12px;
+          transition: transform 0.25s ease;
+        }
+
+        .navbar-actions :global(.book-btn:hover .book-arrow) {
+          transform: translateX(3px);
+        }
+
+        /* =====================================
+           MOBILE TOGGLE
+        ===================================== */
 
         .menu-toggle {
           display: none;
+
           align-items: center;
           justify-content: center;
 
@@ -235,40 +415,82 @@ export default function Navbar() {
           height: 42px;
 
           border: none;
-          background: transparent;
+          border-radius: 12px;
+
+          background: var(--surface-blue);
+
           cursor: pointer;
         }
 
         .menu-toggle :global(svg) {
-          color: #0b223d;
-          font-size: 23px;
+          color: var(--text-primary);
+          font-size: 21px;
         }
 
-        /* MOBILE NAV */
+        /* =====================================
+           MOBILE NAVIGATION
+        ===================================== */
 
         .mobile-nav {
           display: none;
         }
 
-        /* TABLET */
+        /* =====================================
+           LARGE LAPTOP
+        ===================================== */
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1500px) {
+
+          .navbar-container {
+            width: min(1440px, calc(100% - (var(--page-gutter) * 2)));
+            gap: 22px;
+          }
+
           .desktop-nav {
-            gap: 16px;
+            gap: 22px;
           }
 
           .desktop-nav :global(.nav-link) {
-            font-size: 13px;
+            font-size: 14px;
           }
 
-          .navbar-container {
-            padding: 12px 3%;
+          .navbar-actions {
+            gap: 14px;
           }
+
+          .navbar-logo :global(.logo-image) {
+            width: 140px;
+          }
+
         }
 
-        /* MOBILE */
+        /* =====================================
+           SMALL LAPTOP
+        ===================================== */
+
+        @media (max-width: 1300px) {
+
+          .desktop-nav {
+            gap: 17px;
+          }
+
+          .navbar-actions :global(.book-btn) {
+            padding: 13px 18px;
+          }
+
+        }
+
+        /* =====================================
+           TABLET / MOBILE
+        ===================================== */
 
         @media (max-width: 1180px) {
+
+          .navbar-container {
+            min-height: 76px;
+            width: min(calc(100% - 40px), 960px);
+          }
+
           .desktop-nav {
             display: none;
           }
@@ -277,30 +499,31 @@ export default function Navbar() {
             display: flex;
           }
 
-          .navbar-container {
-            min-height: 76px;
-            padding: 10px 5%;
-          }
+          /* MOBILE NAV */
 
           .mobile-nav {
-            display: flex;
-            flex-direction: column;
+            display: block;
 
             position: absolute;
+
             top: 100%;
             left: 0;
 
             width: 100%;
-            background: white;
 
-            padding: 0 5%;
+            background: var(--surface);
+
             max-height: 0;
             overflow: hidden;
 
             opacity: 0;
             visibility: hidden;
 
-            box-shadow: 0 15px 25px rgba(11, 34, 61, 0.08);
+            border-bottom: 1px solid var(--border);
+
+            box-shadow:
+              0 15px 30px rgba(11, 34, 61, 0.08);
+
             transition:
               max-height 0.3s ease,
               opacity 0.3s ease,
@@ -309,58 +532,111 @@ export default function Navbar() {
 
           .mobile-nav.show {
             max-height: calc(100dvh - 76px);
+
             overflow-y: auto;
-            padding: 20px 5% 28px;
+
             opacity: 1;
             visibility: visible;
           }
 
+          .mobile-nav-inner {
+            padding: 20px 5% 30px;
+          }
+
           .mobile-nav :global(.mobile-link) {
-            padding: 14px 4px;
-            border-bottom: 1px solid #e2e8f0;
-            color: #14263d;
-            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 16px 4px;
+
+            border-bottom: 1px solid var(--border);
+
+            color: var(--text-secondary);
+
             font-size: 15px;
+            font-weight: 600;
+          }
+
+          .mobile-nav :global(.mobile-link svg) {
+            color: var(--text-muted);
+            font-size: 12px;
           }
 
           .mobile-nav :global(.mobile-link.active) {
-            color: #0866e8;
+            color: var(--secondary);
           }
 
+          .mobile-nav :global(.mobile-link.active svg) {
+            color: var(--secondary);
+          }
+
+          /* MOBILE CITY */
+
+          .mobile-city {
+            margin-top: 25px;
+          }
+
+          /* MOBILE BOOK */
+
           .mobile-nav :global(.mobile-book-btn) {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            margin-top: 20px;
-            padding: 15px;
-            text-align: center;
 
-            background: #0866e8;
-            color: white;
+            margin-top: 25px;
 
-            border-radius: 10px;
-            font-weight: 600;
+            padding: 16px;
+
+            background: var(--secondary);
+            color: #ffffff;
+
+            border-radius: 14px;
+
+            font-size: 14px;
+            font-weight: 700;
           }
+
         }
 
+        /* =====================================
+           SMALL MOBILE
+        ===================================== */
+
         @media (max-width: 600px) {
+
+          .navbar-container {
+            min-height: 70px;
+          }
+
           .navbar-logo :global(.logo-image) {
-            width: 135px;
+            width: 125px;
+          }
+
+          .navbar-actions {
+            gap: 12px;
           }
 
           .navbar-actions :global(.book-btn) {
             display: none;
           }
 
-          .navbar-container {
-            min-height: 70px;
+          .desktop-city {
+            display: none;
+          }
+
+          .menu-toggle {
+            width: 40px;
+            height: 40px;
           }
 
           .mobile-nav.show {
             max-height: calc(100dvh - 70px);
           }
+
         }
+
       `}</style>
     </>
   );

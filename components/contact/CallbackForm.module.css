@@ -1,0 +1,285 @@
+.section {
+  padding: 110px 0;
+  background: #f3f7fc;
+  scroll-margin-top: 100px;
+}
+
+.container {
+  width: min(1320px, 90%);
+  margin: auto;
+}
+
+.heading {
+  margin-bottom: 45px;
+}
+
+.tag {
+  display: inline-block;
+  color: #0866e8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #0b223d;
+  margin: 0;
+}
+
+.heading h2 em {
+  color: #0866e8;
+  font-weight: 400;
+}
+
+.heading p {
+  max-width: 700px;
+  margin-top: 20px;
+  color: #63748a;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.formCard {
+  max-width: 760px;
+  padding: 45px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 15px 40px rgba(11, 34, 61, 0.04);
+}
+
+.field {
+  margin-bottom: 25px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 11px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b223d;
+}
+
+.field label span {
+  color: #e11d48;
+}
+
+.field label small {
+  color: #718096;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid #d7e0eb;
+  background: #ffffff;
+  border-radius: 11px;
+  padding: 16px 18px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #0b223d;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #0866e8;
+  box-shadow: 0 0 0 4px rgba(8, 102, 232, 0.08);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.phoneInput {
+  display: flex;
+  border: 1px solid #d7e0eb;
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+.countryCode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background: #eaf3ff;
+  color: #0b223d;
+  font-size: 14px;
+  font-weight: 700;
+  border-right: 1px solid #d7e0eb;
+}
+
+.phoneInput input {
+  border: none;
+  border-radius: 0;
+  min-width: 0;
+}
+
+.phoneInput:focus-within {
+  border-color: #0866e8;
+  box-shadow: 0 0 0 4px rgba(8, 102, 232, 0.08);
+}
+
+.phoneInput input:focus {
+  box-shadow: none;
+}
+
+.error {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.privacy {
+  color: #718096;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.privacy a {
+  color: #0866e8;
+  text-decoration: underline;
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  min-width: 240px;
+  padding: 17px 28px;
+  border: none;
+  border-radius: 11px;
+  background: #0866e8;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #0052c8;
+  transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding: 17px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.serverError {
+  margin-top: 25px;
+  padding: 17px;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .formCard {
+    padding: 25px;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}
+
+.section {
+  padding: clamp(76px, 8vw, 110px) 0;
+  background: var(--background);
+}
+
+.heading h2,
+.field label,
+.field input,
+.field select,
+.field textarea,
+.countryCode {
+  color: var(--primary);
+}
+
+.heading h2 em,
+.privacy a {
+  color: var(--secondary);
+}
+
+.heading p,
+.field label small,
+.privacy {
+  color: var(--text-secondary);
+}
+
+.formCard {
+  width: 100%;
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.field input,
+.field select,
+.field textarea,
+.phoneInput {
+  min-height: 52px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.phoneInput:focus-within {
+  border-color: var(--secondary);
+}
+
+.submitButton {
+  background: var(--secondary);
+  transition: transform 220ms ease, background-color 220ms ease;
+}

@@ -1,0 +1,142 @@
+.section {
+  padding: clamp(76px, 8vw, 110px) 0;
+  background: var(--background);
+}
+
+.container {
+  width: min(1320px, 90%);
+  margin: auto;
+}
+
+.heading {
+  margin-bottom: 55px;
+}
+
+.tag {
+  display: inline-block;
+  color: #0866e8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--primary);
+  margin: 0;
+}
+
+.heading h2 em {
+  color: var(--secondary);
+  font-weight: 400;
+}
+
+.heading p {
+  max-width: 650px;
+  margin-top: 20px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  position: relative;
+}
+
+.grid::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  height: 2px;
+  background: #bdd6ff;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+}
+
+.number {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+.step h3 {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.step p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 900px;
+  padding: 25px 30px;
+  margin-top: 60px;
+  border-radius: 14px;
+  background: #eaf3ff;
+}
+
+.notice svg {
+  color: var(--secondary);
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.notice p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .grid::before {
+    display: none;
+  }
+
+  .number {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .notice {
+    padding: 22px;
+    margin-top: 40px;
+  }
+}

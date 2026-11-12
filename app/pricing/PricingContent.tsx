@@ -421,7 +421,7 @@ export default function PricingContent() {
             </div>
 
             <Link
-              href="/contact#callback"
+              href="/book-repair"
               className={styles.ctaButton}
             >
               Book a Service

@@ -44,9 +44,9 @@
 
 .title span {
   color: var(--secondary);
-  font-family: inherit;
+  font-family: var(--font-script);
   font-size: 0.96em;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   letter-spacing: inherit;
 }

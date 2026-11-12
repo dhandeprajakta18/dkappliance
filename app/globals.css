@@ -33,9 +33,9 @@
   --page-gutter: clamp(20px, 5vw, 76px);
   --section-space: clamp(72px, 9vw, 128px);
 
-  --font-heading: var(--font-manrope);
-  --font-body: var(--font-inter);
-  --font-script: var(--font-cursive);
+  --font-heading: Garamond, "Adobe Garamond Pro", "EB Garamond", serif;
+  --font-body: Garamond, "Adobe Garamond Pro", "EB Garamond", serif;
+  --font-script: "Rustic Roadway", var(--font-cursive), cursive;
 }
 
 @theme inline {
@@ -44,7 +44,7 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
-  --font-sans: var(--font-inter);
+  --font-sans: Garamond, "Adobe Garamond Pro", "EB Garamond", serif;
 }
 
 * {
@@ -70,6 +70,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body * {
+  font-family: var(--font-body) !important;
+}
+
 main {
   width: 100%;
   min-width: 0;
@@ -87,6 +91,59 @@ h6 {
   text-wrap: balance;
 }
 
+/* Display-heading system: Garamond for the main line, cursive for its blue accent. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong {
+  font-family: var(--font-heading) !important;
+  font-weight: 400 !important;
+  font-synthesis: none;
+}
+
+h1 em,
+h2 em,
+h3 em,
+h4 em,
+h5 em,
+h6 em,
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span,
+h1 [class*="accentText"],
+h2 [class*="accentText"],
+h3 [class*="accentText"],
+h4 [class*="accentText"],
+h5 [class*="accentText"],
+h6 [class*="accentText"],
+h1 [class*="cursiveTitle"],
+h2 [class*="cursiveTitle"],
+h3 [class*="cursiveTitle"],
+h4 [class*="cursiveTitle"],
+h5 [class*="cursiveTitle"],
+h6 [class*="cursiveTitle"] {
+  font-family: var(--font-script) !important;
+  font-weight: 400 !important;
+  font-synthesis: none;
+}
+
+[class*="cursive"],
+.font-cursive {
+  font-family: var(--font-script) !important;
+  font-weight: 400 !important;
+}
+
 p {
   text-wrap: pretty;
   line-height: 1.7;
@@ -97,6 +154,13 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--secondary) !important;
+  box-shadow: var(--focus-ring);
 }
 
 button {
@@ -125,7 +189,7 @@ video {
 }
 
 .font-cursive {
-  font-family: var(--font-script), cursive;
+  font-family: var(--font-script) !important;
   font-weight: 400;
 }
 

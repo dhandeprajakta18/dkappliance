@@ -131,13 +131,10 @@ export default function ApplianceServices() {
             </p>
           </div>
 
-          <Link
-            href="/contact#callback"
-            className={styles.bannerButton}
-          >
-            Book a Repair
-            <FaArrowRight />
-          </Link>
+          <Link href="/book-repair" className="book-btn">
+  Book a Repair
+  <FaArrowRight className="book-arrow" />
+</Link>
         </div>
 
         {/* APPLIANCE GRID */}
@@ -146,9 +143,9 @@ export default function ApplianceServices() {
           {appliances.map((appliance) => (
             <Link
               key={appliance.service}
-              href={`/contact?service=${encodeURIComponent(
+              href={`/book-repair?service=${encodeURIComponent(
                 appliance.service
-              )}#callback`}
+              )}`}
               className={styles.applianceCard}
               aria-label={`Book ${appliance.name} repair`}
             >

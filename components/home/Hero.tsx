@@ -111,14 +111,10 @@ export default function Hero() {
 
             <div className={styles.heroButtons}>
 
-              <Link
-                href="/contact#callback"
-                className={styles.primaryButton}
-              >
-                Book a Repair
-
-                <FaArrowRight />
-              </Link>
+            <Link href="/book-repair" className="book-btn">
+  Book a Repair
+  <FaArrowRight className="book-arrow" />
+</Link>
 
               <Link
                 href="/#services"

@@ -167,7 +167,7 @@ export default function Services() {
                   </p>
 
                   <Link
-                    href="/contact#callback"
+                    href="/book-repair"
                     className={styles.cardLink}
                   >
                     <span>Book This Service</span>
@@ -219,13 +219,10 @@ export default function Services() {
 
           </div>
 
-          <Link
-            href="/contact#callback"
-            className={styles.bannerButton}
-          >
-            Book a Repair
-            <FaArrowRight aria-hidden="true" />
-          </Link>
+      <Link href="/book-repair" className="book-btn">
+  Book a Repair
+  <FaArrowRight className="book-arrow" />
+</Link>
 
         </div>
 

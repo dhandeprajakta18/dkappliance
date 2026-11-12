@@ -117,11 +117,11 @@
 
   color: var(--text-primary);
 
-  font-family: var(--font-manrope), sans-serif;
+  font-family: Georgia, serif;
 
   font-size: clamp(46px, 4.8vw, 76px);
 
-  font-weight: 800;
+  font-weight: 400;
 
   line-height: 1.12;
 
@@ -135,11 +135,11 @@
 
   color: var(--secondary);
 
-  font-family: inherit;
+  font-family: var(--font-cursive), cursive;
 
   font-size: 0.92em;
 
-  font-weight: 700;
+  font-weight: 400;
 
   line-height: 1.1;
 

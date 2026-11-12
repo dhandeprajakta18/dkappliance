@@ -286,13 +286,10 @@ export default function Footer() {
                   WhatsApp Us
                 </Link>
 
-                <Link
-                  href="/contact#callback"
-                  className="contact-book-btn"
-                >
-                  Book a Repair
-                  <FaArrowRight />
-                </Link>
+               <Link href="/book-repair" className="book-btn">
+  Book a Repair
+  <FaArrowRight className="book-arrow" />
+</Link>
 
               </div>
 

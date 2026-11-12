@@ -30,7 +30,7 @@ export default function AboutCTA() {
             </p>
           </div>
 
-          <Link href="/contact#callback" className={styles.button}>
+          <Link href="/book-repair" className={styles.button}>
             Book a Service
             <FaArrowRight />
           </Link>

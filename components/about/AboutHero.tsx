@@ -34,7 +34,7 @@ export default function AboutHero() {
             </p>
 
             <div className={styles.actions}>
-              <Link href="/contact#callback" className={styles.primaryBtn}>
+              <Link href="/book-repair" className={styles.primaryBtn}>
                 Book a Service
                 <FaArrowRight />
               </Link>

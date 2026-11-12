@@ -140,7 +140,7 @@ export default function Navbar() {
             {/* BOOK REPAIR */}
 
             <Link
-              href="/contact#callback"
+              href="/book-repair"
               className="book-btn"
             >
               Book a Repair
@@ -208,7 +208,7 @@ export default function Navbar() {
             {/* MOBILE BOOK BUTTON */}
 
             <Link
-              href="/contact#callback"
+              href="/book-repair"
               className="mobile-book-btn"
               onClick={() => setMenuOpen(false)}
             >

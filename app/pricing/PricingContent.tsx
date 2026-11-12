@@ -411,7 +411,7 @@ export default function PricingContent() {
               <h2>
                 Ready to Get Your
                 <br />
-                Appliance Fixed?
+                Appliance <em>Fixed?</em>
               </h2>
 
               <p>

@@ -286,10 +286,10 @@ export default function Footer() {
                   WhatsApp Us
                 </Link>
 
-               <Link href="/book-repair" className="book-btn">
-  Book a Repair
-  <FaArrowRight className="book-arrow" />
-</Link>
+                <Link href="/book-repair" className="book-btn">
+                  Book a Repair
+                  <FaArrowRight className="book-arrow" />
+                </Link>
 
               </div>
 
@@ -380,9 +380,9 @@ export default function Footer() {
 
         .footer {
           width: 100%;
-          background: var(--surface-muted);
-          color: var(--text-primary);
-          font-family: var(--font-inter), sans-serif;
+          background: var(--primary);
+          color: #ffffff;
+          font-family: var(--font-body), serif;
         }
 
         /* =====================================
@@ -479,7 +479,7 @@ export default function Footer() {
 
         .footer-main {
           padding: 70px 5% 0;
-          background: var(--surface-muted);
+          background: var(--primary);
         }
 
         .footer-container {
@@ -501,7 +501,7 @@ export default function Footer() {
           padding-bottom: 45px;
           margin-bottom: 55px;
 
-          border-bottom: 1px solid var(--border);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .footer-brand {
@@ -526,7 +526,7 @@ export default function Footer() {
           font-size: 13px;
           line-height: 1.8;
 
-          color: var(--text-secondary);
+          color: #dceaff;
         }
 
         .footer-brand-tagline {
@@ -534,7 +534,7 @@ export default function Footer() {
           font-style: italic;
           font-size: 25px;
 
-          color: var(--text-primary);
+          color: #ffffff;
         }
 
         .footer-brand-tagline span {
@@ -571,7 +571,7 @@ export default function Footer() {
           font-size: 14px;
           font-weight: 700;
 
-          color: var(--text-primary);
+          color: #ffffff;
         }
 
         .footer-column ul {
@@ -591,7 +591,7 @@ export default function Footer() {
           font-size: 14px;
           line-height: 1.5;
 
-          color: var(--text-secondary);
+          color: #dceaff;
 
           text-decoration: none;
 
@@ -617,7 +617,7 @@ export default function Footer() {
           font-size: 13px;
           line-height: 1.8;
 
-          color: var(--text-secondary);
+          color: #dceaff;
         }
 
         .footer-contact :global(.contact-link) {
@@ -631,7 +631,7 @@ export default function Footer() {
           font-size: 14px;
           font-weight: 600;
 
-          color: var(--text-primary);
+          color: #ffffff;
 
           transition: color 0.3s ease;
         }
@@ -645,7 +645,7 @@ export default function Footer() {
           color: #0866e8;
         }
 
-        .footer-contact :global(.contact-book-btn) {
+        .footer-contact :global(.book-btn) {
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -655,10 +655,11 @@ export default function Footer() {
           margin-top: 10px;
           padding: 13px 22px;
 
-          border: 1px solid var(--secondary);
+          border: 1px solid transparent;
           border-radius: 50px;
 
-          color: var(--secondary);
+          background: var(--secondary);
+          color: #ffffff;
 
           font-size: 13px;
           font-weight: 600;
@@ -666,9 +667,9 @@ export default function Footer() {
           transition: all 0.3s ease;
         }
 
-        .footer-contact :global(.contact-book-btn:hover) {
-          background: var(--secondary);
-          color: #ffffff;
+        .footer-contact :global(.book-btn:hover) {
+          background: #ffffff;
+          color: var(--primary);
         }
 
         /* =====================================
@@ -698,7 +699,7 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
 
-          color: var(--text-secondary);
+          color: #dceaff;
 
           font-size: 19px;
 
@@ -725,7 +726,7 @@ export default function Footer() {
           font-size: 13px;
           font-weight: 600;
 
-          color: var(--text-primary);
+          color: #ffffff;
         }
 
         .footer-status :global(svg) {
@@ -746,7 +747,7 @@ export default function Footer() {
 
           padding: 28px 0;
 
-          border-top: 1px solid var(--border);
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .footer-bottom p {
@@ -754,7 +755,7 @@ export default function Footer() {
 
           font-size: 12px;
 
-          color: var(--text-secondary);
+          color: #dceaff;
         }
 
         .footer-bottom-links {
@@ -774,7 +775,7 @@ export default function Footer() {
 
           font-size: 12px;
 
-          color: var(--text-secondary);
+          color: #ffffff;
 
           transition: color 0.3s ease;
         }

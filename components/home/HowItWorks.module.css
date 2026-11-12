@@ -789,8 +789,7 @@
   overflow: hidden;
 
   box-shadow:
-    0 15px 35px
-    rgba(11, 34, 61, 0.15);
+    0 15px 35px rgba(11, 34, 61, 0.15);
 }
 
 .inspectionCard::before {
@@ -870,25 +869,33 @@
     rgba(255, 255, 255, 0.2);
 }
 
+/* =========================================
+   INSPECTION CARD HEADINGS
+========================================= */
+
 .cardGrid h4 {
   margin: 0;
 
-  font-family: var(--font-heading), sans-serif;
+  font-family: Georgia, serif;
 
-  font-size:
-    clamp(22px, 2vw, 29px);
+  font-size: clamp(22px, 2vw, 29px);
 
   font-weight: 400;
 
   line-height: 1.35;
+
+  color: #ffffff !important;
 }
 
-.cardGrid em {
-  color: #74b4ff;
+/* Highlighted italic text */
+
+.cardGrid h4 em {
+  color: #ffffff !important;
 
   font-weight: 400;
-}
 
+  font-style: italic;
+}
 /* =========================================
    WARRANTY
 ========================================= */

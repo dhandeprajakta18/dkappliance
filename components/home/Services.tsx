@@ -8,7 +8,6 @@ import {
   FaShirt,
   FaTv,
   FaFireBurner,
-  FaDroplet,
   FaScrewdriverWrench,
   FaArrowUpRightFromSquare,
 } from "react-icons/fa6";
@@ -23,7 +22,7 @@ const services = [
       "Professional AC inspection, maintenance, and repair services to keep your home cool and comfortable.",
     image: "/images/services/ac.png",
     icon: FaSnowflake,
-    service: "AC Repair",
+    service: "AC",
   },
   {
     number: "02",
@@ -50,7 +49,7 @@ const services = [
       "Professional assistance for television display, sound, connectivity, and performance issues.",
     image: "/images/services/television.png",
     icon: FaTv,
-    service: "Television",
+    service: "TV",
   },
   {
     number: "05",
@@ -63,12 +62,12 @@ const services = [
   },
   {
     number: "06",
-    title: "Water Purifier Repair",
+    title: "Geyser Repair",
     description:
-      "Keep your water purifier working efficiently with professional servicing and repair support.",
-    image: "/images/services/water-purifier.png",
-    icon: FaDroplet,
-    service: "Water Purifier",
+      "Dependable inspection, repair, installation, and maintenance for your geyser.",
+    image: "/images/technician1.png",
+    icon: FaFireBurner,
+    service: "Geyser",
   },
 ];
 
@@ -167,7 +166,7 @@ export default function Services() {
                   </p>
 
                   <Link
-                    href="/book-repair"
+                    href={`/book-repair?appliance=${encodeURIComponent(service.service)}`}
                     className={styles.cardLink}
                   >
                     <span>Book This Service</span>

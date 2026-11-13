@@ -53,6 +53,8 @@ const stepLabels: Record<BookingStep, string> = {
 const initialBooking: BookingData = {
   city: "",
   appliance: "",
+  requestedService: "",
+  referencePrice: "",
   serviceType: null,
   date: "",
   timeSlot: null,
@@ -80,7 +82,9 @@ export default function BookingWizard() {
 
   useEffect(() => {
     const cityParam = searchParams.get("city");
+    const applianceParam = searchParams.get("appliance");
     const serviceParam = searchParams.get("service");
+    const priceParam = searchParams.get("price");
 
     const storedCity =
       localStorage.getItem("dk-selected-city");
@@ -102,7 +106,13 @@ export default function BookingWizard() {
           ? storedCity
           : "";
 
-    const selectedAppliance = serviceParam
+    const selectedAppliance = applianceParam && appliances.some(
+      (item) => item.name.toLowerCase() === applianceParam.toLowerCase()
+    )
+      ? appliances.find(
+          (item) => item.name.toLowerCase() === applianceParam.toLowerCase()
+        )?.name || ""
+      : serviceParam
       ? appliances.find((item) =>
           serviceParam
             .toLowerCase()
@@ -115,6 +125,8 @@ export default function BookingWizard() {
         ...previous,
         city: selectedCity,
         appliance: selectedAppliance,
+        requestedService: serviceParam || "",
+        referencePrice: priceParam || "",
       }));
 
       setStepIndex(

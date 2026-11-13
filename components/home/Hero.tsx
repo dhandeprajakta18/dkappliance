@@ -12,7 +12,7 @@ import {
   FaShirt,
   FaTv,
   FaFireBurner,
-  FaDroplet,
+  FaWaveSquare,
   FaScrewdriverWrench,
   FaCalendarCheck,
   FaHouse,
@@ -31,7 +31,7 @@ import styles from "./Hero.module.css";
 const appliances = [
   {
     name: "AC",
-    value: "AC Repair",
+    value: "AC",
     icon: FaSnowflake,
   },
   {
@@ -46,7 +46,7 @@ const appliances = [
   },
   {
     name: "Television",
-    value: "Television",
+    value: "TV",
     icon: FaTv,
   },
   {
@@ -55,9 +55,9 @@ const appliances = [
     icon: FaFireBurner,
   },
   {
-    name: "Water Purifier",
-    value: "Water Purifier",
-    icon: FaDroplet,
+    name: "Geyser",
+    value: "Geyser",
+    icon: FaWaveSquare,
   },
 ];
 
@@ -68,7 +68,9 @@ const appliances = [
 export default function Hero() {
   const [selectedService, setSelectedService] = useState("");
 
-  const bookingUrl = "/contact#callback";
+  const bookingUrl = selectedService
+    ? `/book-repair?appliance=${encodeURIComponent(selectedService)}`
+    : "/book-repair";
 
   return (
     <div className={styles.heroWrapper}>

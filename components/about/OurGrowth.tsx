@@ -8,10 +8,10 @@ import {
 import styles from "./OurGrowth.module.css";
 
 const growthData = [
-  { year: "Stage 1", value: 25 },
-  { year: "Stage 2", value: 45 },
-  { year: "Stage 3", value: 70 },
-  { year: "Stage 4", value: 100 },
+  { year: "Request", value: 25 },
+  { year: "Inspect", value: 50 },
+  { year: "Explain", value: 75 },
+  { year: "Repair", value: 100 },
 ];
 
 const features = [
@@ -43,9 +43,9 @@ export default function OurGrowth() {
           
 
           <h2>
-            Growing Through
+            Service Built on
             <br />
-            <em>Trust & Better Service.</em>
+            <em>Clear Communication.</em>
           </h2>
 
           <p>
@@ -58,13 +58,12 @@ export default function OurGrowth() {
         <div className={styles.layout}>
           <div className={styles.chartCard}>
             <div className={styles.chartHeading}>
-              <h3>Our Growth Vision</h3>
+              <h3>Our service process</h3>
               <FaArrowTrendUp />
             </div>
 
             <p>
-              Illustrative progress toward our
-              service excellence goals.
+              Each visit follows a simple process designed to keep you informed.
             </p>
 
             <div className={styles.barChart}>
@@ -75,7 +74,6 @@ export default function OurGrowth() {
                       className={styles.bar}
                       style={{ height: `${item.value}%` }}
                     >
-                      <span>{item.value}%</span>
                     </div>
                   </div>
 

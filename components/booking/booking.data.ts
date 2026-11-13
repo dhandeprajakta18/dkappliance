@@ -32,16 +32,11 @@ export const appliances = [
   { name: "Refrigerator", icon: "🧊" },
   { name: "TV", icon: "📺" },
   { name: "Microwave", icon: "♨️" },
-  { name: "RO Water Purifier", icon: "💧" },
   { name: "Geyser", icon: "🚿" },
-  { name: "Electric Work", icon: "⚡" },
-  { name: "Treadmill", icon: "🏃" },
-  { name: "Chimney", icon: "🏠" },
-  { name: "Water Dispenser", icon: "🚰" },
-  { name: "Dishwasher", icon: "🍽️" },
-  { name: "Water Cooler", icon: "🧊" },
-  { name: "CCTV", icon: "📷" },
-  { name: "Air Purifier", icon: "🌬️" },
+  { name: "Gas Stove", icon: "🔥" },
+  { name: "Cooking Range", icon: "🍳" },
+  { name: "Commercial Bhatti", icon: "♨️" },
+  { name: "Kitchen Chimney", icon: "🏠" },
 ];
 
 export const timeSlots: {

@@ -12,7 +12,7 @@ import styles from "./ApplianceServices.module.css";
 const appliances = [
   {
     name: "Air Conditioner",
-    service: "AC Repair",
+    service: "AC",
     image: "/images/services/ac.png",
   },
   {
@@ -27,7 +27,7 @@ const appliances = [
   },
   {
     name: "LED Television",
-    service: "Television",
+    service: "TV",
     image: "/images/services/television.png",
   },
   {
@@ -36,59 +36,29 @@ const appliances = [
     image: "/images/services/microwave.png",
   },
   {
-    name: "Water Purifier",
-    service: "Water Purifier",
-    image: "/images/services/water-purifier.png",
-  },
-  {
     name: "Geyser",
     service: "Geyser",
     image: "/images/technician1.png",
   },
   {
-    name: "Electrical Work",
-    service: "Electrical Work",
+    name: "Gas Stove",
+    service: "Gas Stove",
     image: "/images/technician1.png",
   },
   {
-    name: "Chimney",
-    service: "Chimney",
+    name: "Cooking Range",
+    service: "Cooking Range",
     image: "/images/services/microwave.png",
   },
   {
-    name: "CCTV Camera",
-    service: "CCTV Camera",
+    name: "Commercial Bhatti",
+    service: "Commercial Bhatti",
     image: "/images/technician1.png",
   },
   {
-    name: "Water Dispenser",
-    service: "Water Dispenser",
-    image: "/images/services/water-purifier.png",
-  },
-  {
-    name: "Water Cooler",
-    service: "Water Cooler",
-    image: "/images/services/water-purifier.png",
-  },
-  {
-    name: "Air Cooler",
-    service: "Air Cooler",
-    image: "/images/services/ac.png",
-  },
-  {
-    name: "Dishwasher",
-    service: "Dishwasher",
-    image: "/images/technician1.png",
-  },
-  {
-    name: "Air Purifier",
-    service: "Air Purifier",
-    image: "/images/services/water-purifier.png",
-  },
-  {
-    name: "Treadmill",
-    service: "Treadmill",
-    image: "/images/technician1.png",
+    name: "Kitchen Chimney",
+    service: "Kitchen Chimney",
+    image: "/images/services/microwave.png",
   },
 ];
 
@@ -143,7 +113,7 @@ export default function ApplianceServices() {
           {appliances.map((appliance) => (
             <Link
               key={appliance.service}
-              href={`/book-repair?service=${encodeURIComponent(
+              href={`/book-repair?appliance=${encodeURIComponent(
                 appliance.service
               )}`}
               className={styles.applianceCard}

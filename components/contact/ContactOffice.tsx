@@ -1,10 +1,8 @@
 import {
-  FaLocationDot,
-  FaPhone,
-  FaEnvelope,
   FaClock,
-  FaArrowUpRightFromSquare,
   FaHeadset,
+  FaCalendarCheck,
+  FaClipboardCheck,
 } from "react-icons/fa6";
 
 import styles from "./ContactOffice.module.css";
@@ -21,7 +19,7 @@ export default function ContactOffice() {
             </span> */}
 
             <h2>
-              Our Head <em>Office.</em>
+              Service <em>Support.</em>
             </h2>
 
             <p className={styles.description}>
@@ -30,33 +28,29 @@ export default function ContactOffice() {
               with appliance repair enquiries.
             </p>
 
-            <h3>DK Appliance Care</h3>
+            <h3>Arrange your appliance service</h3>
 
             <div className={styles.details}>
               <div className={styles.detail}>
-                <FaLocationDot />
+                <FaClipboardCheck />
 
                 <p>
-                  Your Office Address,
+                  Tell us the appliance and the issue
                   <br />
-                  City, State, PIN Code
+                  when you request a booking.
                 </p>
               </div>
 
               <div className={styles.detail}>
-                <FaPhone />
+                <FaCalendarCheck />
 
-                <a href="tel:+910000000000">
-                  +91 XXXXX XXXXX
-                </a>
+                <a href="/book-repair">Choose a convenient visit time</a>
               </div>
 
               <div className={styles.detail}>
-                <FaEnvelope />
+                <FaHeadset />
 
-                <a href="mailto:your-email@example.com">
-                  your-email@example.com
-                </a>
+                <a href="#callback">Request a callback from our team</a>
               </div>
 
               <div className={styles.detail}>
@@ -69,13 +63,10 @@ export default function ContactOffice() {
             </div>
 
             <a
-              href="https://www.google.com/maps"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/book-repair"
               className={styles.mapLink}
             >
-              Open in Google Maps
-              <FaArrowUpRightFromSquare />
+              Book a Repair
             </a>
           </div>
 
@@ -96,23 +87,19 @@ export default function ContactOffice() {
             <div className={styles.supportDivider} />
 
             <div className={styles.supportItem}>
-              <strong>Phone</strong>
+              <strong>Booking</strong>
 
-              <a href="tel:+910000000000">
-                +91 XXXXX XXXXX
-              </a>
+              <a href="/book-repair">Start an online request</a>
             </div>
 
             <div className={styles.supportItem}>
-              <strong>Email</strong>
+              <strong>Callback</strong>
 
-              <a href="mailto:your-email@example.com">
-                your-email@example.com
-              </a>
+              <a href="#callback">Ask our team to contact you</a>
             </div>
 
             <div className={styles.supportItem}>
-              <strong>Business Hours</strong>
+              <strong>Availability</strong>
 
               <span>
                 Contact us for availability

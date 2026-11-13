@@ -41,53 +41,48 @@ type Story = {
   poster: string;
 };
 
-/* =========================================
-   CUSTOMER REVIEWS
-
-   Replace these placeholders with genuine
-   customer reviews before publishing.
-========================================= */
+/* Service standards shown instead of unverified customer reviews. */
 
 const reviews: Review[] = [
   {
     id: 1,
-    name: "Customer Name",
-    service: "AC Repair",
-    location: "Your City",
-    date: "Review date",
+    name: "Clear communication",
+    service: "Before work begins",
+    location: "Every booking",
+    date: "Service standard",
     rating: 5,
     review:
-      "Add a genuine customer review here. You can describe the technician's punctuality, professionalism and the overall repair experience.",
+      "We explain the service process and any applicable inspection or repair charges before work begins.",
   },
   {
     id: 2,
-    name: "Customer Name",
-    service: "Washing Machine Repair",
-    location: "Your City",
-    date: "Review date",
+    name: "Convenient scheduling",
+    service: "For your preferred time",
+    location: "Service availability",
+    date: "Service standard",
     rating: 5,
     review:
-      "Add another authentic customer review about the washing machine repair service, including the customer's experience with the technician.",
+      "Choose a suitable date and time while booking. Our team confirms the visit details with you.",
   },
   {
     id: 3,
-    name: "Customer Name",
-    service: "AC Service",
-    location: "Your City",
-    date: "Review date",
+    name: "Careful inspection",
+    service: "For the reported issue",
+    location: "At your doorstep",
+    date: "Service standard",
     rating: 5,
     review:
-      "Add genuine feedback from a customer who booked an air conditioner servicing or repair appointment.",
+      "The technician assesses the appliance and recommends the right repair or maintenance option.",
   },
   {
     id: 4,
-    name: "Customer Name",
-    service: "Refrigerator Repair",
-    location: "Your City",
-    date: "Review date",
+    name: "Approval first",
+    service: "Before a chargeable repair",
+    location: "Your decision matters",
+    date: "Service standard",
     rating: 5,
     review:
-      "Add a verified customer review about refrigerator repair, explaining the service experience and the quality of work.",
+      "Repair work proceeds only after you understand and approve the proposed service.",
   },
 ];
 
@@ -206,7 +201,7 @@ function ReviewCard({ review }: { review: Review }) {
           </Link>
         ) : (
           <span className={styles.reviewSource}>
-            Customer review · {review.date}
+            {review.date}
           </span>
         )}
       </div>
@@ -351,28 +346,25 @@ export default function Testimonials() {
             </span> */}
 
             <h2 className={styles.heading}>
-              Straight from <em>our customers.</em>
+              Service you can <em>count on.</em>
             </h2>
 
             <p className={styles.description}>
-              Hear directly from the people we serve. Real
-              experiences, genuine feedback, and the trust
-              behind every appliance repair.
+              A straightforward repair experience built around
+              clear updates, careful inspection, and your approval.
             </p>
           </div>
 
           {/* RATING CARD */}
 
           <div className={styles.ratingCard}>
-            <div className={styles.ratingNumber}>—</div>
+            <div className={styles.ratingNumber}>✓</div>
 
             <div className={styles.ratingDetails}>
-              <StarRating />
-
-              <p>Customer reviews</p>
+              <p>Our service approach</p>
 
               <span className={styles.ratingLink}>
-                Verified ratings coming soon
+                Clear updates at every step
               </span>
             </div>
           </div>
@@ -390,20 +382,10 @@ export default function Testimonials() {
             <ReviewCard review={reviews[1]} />
           </div>
 
-          {/* COLUMN 2 — VIDEO */}
-
-          <StoryCard story={stories[0]} />
-
-          {/* COLUMN 3 — REVIEWS */}
-
           <div className={styles.reviewColumn}>
             <ReviewCard review={reviews[2]} />
             <ReviewCard review={reviews[3]} />
           </div>
-
-          {/* COLUMN 4 — VIDEO */}
-
-          <StoryCard story={stories[1]} />
         </div>
 
         {/* BOTTOM */}

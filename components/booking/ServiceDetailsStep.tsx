@@ -34,7 +34,9 @@ export default function ServiceDetailsStep({
       <div className={styles.serviceDetailsCard}>
         <div className={styles.serviceDetailsTop}>
           <div className={styles.serviceDetailsInfo}>
-            <strong>{booking.appliance}</strong>
+            <strong>
+              {booking.requestedService || booking.appliance}
+            </strong>
 
             <p>
               Technician visit and fault inspection.
@@ -44,12 +46,20 @@ export default function ServiceDetailsStep({
           </div>
 
           <div className={styles.servicePrice}>
-            <span>INSPECTION CHARGE</span>
+            <span>
+              {booking.referencePrice
+                ? "REFERENCE PRICE"
+                : "PRICE"}
+            </span>
 
-            <strong>To be confirmed</strong>
+            <strong>
+              {booking.referencePrice || "On inspection"}
+            </strong>
 
             <small>
-              Our team will explain applicable charges.
+              {booking.referencePrice
+                ? "Final DK Appliance Care price is confirmed before work begins."
+                : "Our team will explain applicable charges."}
             </small>
           </div>
 

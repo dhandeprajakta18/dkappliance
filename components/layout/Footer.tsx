@@ -21,51 +21,40 @@ import {
 ========================================= */
 
 const services = [
-  {
-    label: "AC Repair",
-    href: "/book-repair?service=AC%20Repair",
-  },
-  {
-    label: "Washing Machine Repair",
-    href: "/book-repair?service=Washing%20Machine",
-  },
-  {
-    label: "Refrigerator Repair",
-    href: "/book-repair?service=Refrigerator",
-  },
-  {
-    label: "Television Repair",
-    href: "/book-repair?service=Television",
-  },
-  {
-    label: "Microwave Repair",
-    href: "/book-repair?service=Microwave",
-  },
-  {
-    label: "Water Purifier Repair",
-    href: "/book-repair?service=Water%20Purifier",
-  },
+  { label: "AC Repair", href: "/book-repair?appliance=AC" },
+  { label: "Washing Machine", href: "/book-repair?appliance=Washing%20Machine" },
+  { label: "Refrigerator", href: "/book-repair?appliance=Refrigerator" },
+  { label: "TV Repair", href: "/book-repair?appliance=TV" },
+  { label: "Microwave", href: "/book-repair?appliance=Microwave" },
+  { label: "Geyser", href: "/book-repair?appliance=Geyser" },
+  { label: "Gas Stove", href: "/book-repair?appliance=Gas%20Stove" },
+  { label: "Cooking Range", href: "/book-repair?appliance=Cooking%20Range" },
+  { label: "Commercial Bhatti", href: "/book-repair?appliance=Commercial%20Bhatti" },
+  { label: "Kitchen Chimney", href: "/book-repair?appliance=Kitchen%20Chimney" },
 ];
 
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "Our Services", href: "/#services" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Request a Callback", href: "/contact#callback" },
+const cities = [
+  "Amritsar",
+  "Chandigarh",
+  "Ludhiana",
+  "Jalandhar",
+  "Patiala",
+  "Jammu",
+  "Varanasi",
+  "Delhi",
+  "Mohali",
+  "Faridabad",
 ];
 
 const companyLinks = [
   { label: "About Us", href: "/about" },
   { label: "Pricing", href: "/pricing" },
+  { label: "FAQ", href: "/faq" },
+  { label: "My Bookings", href: "/my-bookings" },
   { label: "Contact", href: "/contact" },
-  { label: "Request a Callback", href: "/contact#callback" },
+  { label: "Join Us", href: "/join-us" },
   { label: "Privacy Policy", href: "/privacy-policy" },
-  {
-    label: "Terms & Conditions",
-    href: "/terms-and-conditions",
-  },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
 ];
 
 /* =========================================
@@ -211,26 +200,29 @@ export default function Footer() {
 
               </div>
 
-              {/* QUICK LINKS */}
+            {/* CITIES */}
 
-              <div className="footer-column">
+<div className="footer-column">
+  <h3>Cities</h3>
 
-                <h3>Quick Links</h3>
+  <ul>
+    {cities.map((city) => (
+      <li key={city}>
+        <Link
+          href={`/book-repair?city=${encodeURIComponent(city)}`}
+        >
+          {city}
+        </Link>
+      </li>
+    ))}
 
-                <ul>
-                  {quickLinks.map((link) => (
-                    <li key={link.label}>
-
-                      <Link href={link.href}>
-                        {link.label}
-                      </Link>
-
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
-
+    <li>
+      <Link href="/book-repair">
+        All Cities
+      </Link>
+    </li>
+  </ul>
+</div>
               {/* COMPANY */}
 
               <div className="footer-column">
@@ -251,47 +243,35 @@ export default function Footer() {
 
               </div>
 
-              {/* CONTACT */}
+     {/* CONTACT */}
 
-              <div className="footer-column footer-contact">
+<div className="footer-column footer-contact">
+  <h3>Contact</h3>
 
-                <h3>Contact</h3>
+  <a
+    href="tel:+919781629990"
+    className="contact-link"
+  >
+    <FaPhone />
+    +91 97816-29990
+  </a>
 
-                <p className="contact-description">
-                  Need assistance with an appliance?
-                  Our team is here to help.
-                </p>
+  <a
+    href="https://wa.me/919781629990"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="contact-link"
+  >
+    <FaWhatsapp />
+    WhatsApp Us
+  </a>
 
-                <Link
-                  href="/contact"
-                  className="contact-link"
-                >
-                  <FaEnvelope />
-                  Contact Our Team
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="contact-link"
-                >
-                  <FaPhone />
-                  Request a Callback
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="contact-link"
-                >
-                  <FaWhatsapp />
-                  WhatsApp Us
-                </Link>
-
-                <Link href="/book-repair" className="book-btn">
-                  Book a Repair
-                  <FaArrowRight className="book-arrow" />
-                </Link>
-
-              </div>
+  <Link href="/book-repair" className="book-btn">
+    Book a Repair
+    <FaArrowRight className="book-arrow" />
+  </Link>
+</div>Privacy Policy
+Terms
 
             </div>
 

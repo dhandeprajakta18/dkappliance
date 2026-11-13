@@ -22,6 +22,8 @@ export type TimeSlot =
 export interface BookingData {
   city: string;
   appliance: string;
+  requestedService: string;
+  referencePrice: string;
   serviceType: ServiceType | null;
   date: string;
   timeSlot: TimeSlot | null;

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | DK Appliance Care",
   },
   description:
-    "Professional appliance repair and doorstep service for air conditioners, refrigerators, washing machines, televisions, microwaves, and water purifiers.",
+    "Professional doorstep repair and service for ACs, washing machines, refrigerators, geysers, microwaves, TVs, gas stoves, cooking ranges, commercial bhattis, and kitchen chimneys.",
   applicationName: "DK Appliance Care",
   keywords: [
     "DK Appliance Care",
@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     "AC repair",
     "refrigerator repair",
     "washing machine repair",
-    "home appliance service",
+    "geyser repair",
+    "kitchen chimney repair",
+    "gas stove repair",
     "doorstep appliance repair",
   ],
   robots: {

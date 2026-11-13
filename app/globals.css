@@ -252,14 +252,14 @@ button[class*="button"] {
 }
 
 .legal-content h1 {
-  margin-bottom: 24px;
-  font-size: clamp(3rem, 7vw, 5rem);
-  line-height: 0.95;
+  margin-bottom: 28px;
+  font-size: clamp(3.35rem, 7.5vw, 5.6rem);
+  line-height: 1;
 }
 
 .legal-content h2 {
-  margin: 42px 0 10px;
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 48px 0 14px;
+  font-size: clamp(2.2rem, 4.5vw, 3.15rem);
 }
 
 .legal-content p {
@@ -273,6 +273,64 @@ button[class*="button"] {
 
   :root {
     --page-gutter: 20px;
+  }
+
+  body {
+    font-size: 17px;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .legal-page {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .legal-content {
+    padding: 28px 22px;
+    border-radius: 18px;
+  }
+
+  .legal-content h1 {
+    font-size: clamp(3.1rem, 15vw, 4.25rem);
+  }
+
+  .legal-content h2 {
+    margin-top: 38px;
+    font-size: clamp(2rem, 10vw, 2.6rem);
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Shared small-screen safety rules for every page and reusable component. */
+@media (max-width: 768px) {
+  [class*="container"],
+  [class*="Container"],
+  [class*="content"],
+  [class*="Content"] {
+    min-width: 0;
+  }
+
+  a,
+  button,
+  p,
+  span,
+  strong {
+    overflow-wrap: anywhere;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
   }
 }
 

@@ -222,39 +222,39 @@ const appliances: Appliance[] = [
   },
 
   {
-    id: "water-purifier",
-    name: "Water Purifier",
-    icon: "/images/services/water-purifier.png",
+    id: "geyser",
+    name: "Geyser",
+    icon: "/images/technician1.png",
     tips: [
       {
-        title: "your water purifier needs timely servicing",
+        title: "your geyser benefits from timely servicing",
         highlight: "timely servicing",
         description:
-          "Regular maintenance helps your purifier operate correctly and supports consistent water treatment.",
+          "Regular maintenance helps your geyser heat efficiently and can identify developing issues early.",
       },
       {
-        title: "filters do not last forever",
-        highlight: "filters",
+        title: "watch for inconsistent heating",
+        highlight: "inconsistent heating",
         description:
-          "Replace filters according to manufacturer recommendations, water quality and usage.",
+          "Fluctuating water temperature may point to an element or thermostat issue that needs inspection.",
       },
       {
-        title: "slow water flow and unusual taste",
-        highlight: "slow water flow",
+        title: "water leakage needs attention",
+        highlight: "water leakage",
         description:
-          "Changes in flow, taste or smell may indicate that your purifier requires inspection or maintenance.",
+          "Switch the geyser off and arrange a professional inspection if you notice leakage around the unit.",
       },
       {
-        title: "keep your purifier clean and hygienic",
-        highlight: "clean and hygienic",
+        title: "turn the power off before cleaning",
+        highlight: "power off",
         description:
-          "Follow recommended cleaning and sanitisation schedules to maintain the system properly.",
+          "Always isolate the electrical supply before cleaning the exterior or checking the area around the geyser.",
       },
       {
-        title: "regular checks protect your water system",
-        highlight: "regular checks",
+        title: "leave internal repairs to experts",
+        highlight: "repairs to experts",
         description:
-          "Timely servicing helps identify leaks, clogged filters and other performance issues.",
+          "Geyser repairs involve electricity and hot water, so internal work should be handled by a trained technician.",
       },
     ],
   },
